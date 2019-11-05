@@ -1,0 +1,83 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html {
+    background: #CFD3D7 url("../img/reader_bg.png") fixed;
+}
+
+body {
+	font: 13px/22px 'Microsoft YaHei', 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, 'Hiragino Sans GB', sans-serif;
+	line-height:150%;
+	margin: 0;
+	padding: 0;
+	-webkit-hyphens: auto;
+    overflow: hidden;
+}
+
+input, textarea {
+	resize: none;
+}
+
+img {
+	border: 0;
+    color: transparent;
+    font-size: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+}
+
+a {
+	color: #758694;
+	text-decoration: none;
+	-webkit-transition: opacity, color .33s ease;
+	-moz-transition: opacity, color .33s ease;
+	transition: opacity, color .33s ease;
+}
+
+a:hover {
+	color: #5d6c79;
+}
+
+input, select, textarea {
+	font:normal 12px Verdana,Arial;
+}
+
+.clear {
+	clear: both;
+}
+
+.hide {
+	display: none;
+}
+.vote-count {
+	position: absolute;
+	right: 10px;
+	top: 32px;
+	min-width: 20px;
+	color: #9E9E9E;
+	padding: 3px;
+	text-align: center;
+	border: 1px solid #BEC6CC;
+	font: 11px/12px Helvetica Neue, Helvetica, Arial, sans-serif;
+	border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-shadow: 0 1px 0 white;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F7F7F7), to(#E0E0E0));
+	background: -moz-linear-gradient(top, #F7F7F7, #E0E0E0);
+	background: linear-gradient(top, #F7F7F7, #E0E0E0);
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.middot {
+	padding: 0 5px;
+}
