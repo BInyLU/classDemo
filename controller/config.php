@@ -5,6 +5,9 @@
  * 全部url采用全动态生成,约定a代表模块,page代表分页
  * 入口地址统一为: index.php?a=模块,例如:index.php?a=list
  */
+//禁用错误报告
+error_reporting(0);
+//设置编码格式
 header("Content-type: text/html; charset=utf-8");
 //设置中国时区
 date_default_timezone_set('PRC');
