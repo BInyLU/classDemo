@@ -17,7 +17,7 @@ define('SITE_SUFFIX','demo');
 
 //设置数据库连接参数
 $db = array(
-    'db_host' => 'localhost',
+    'db_host' => 'mysql.coding.io',
     'db_user' => 'user-nnfpQ9KK2z',
     'db_pass' => 'n_QQ9c]SKXgeqcOs{wks',
     'db_name' => 'db-eYPQ9bNIXb'
