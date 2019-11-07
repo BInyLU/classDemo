@@ -51,7 +51,7 @@ switch ($getNo)
         include 'userinfoAction.php';break;
     case 'list':    //列表
         include 'listAction.php';break;
-    case 'search':
+    case 'search':  //搜索
         include 'searchAction.php';break;
     case 'details': //详情
         include 'detailsAction.php';break;

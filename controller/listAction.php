@@ -69,7 +69,7 @@ if($listHot){
 	}
 }
 //6.如果登录了，获取用户信息
-session_start();
+// session_start();
 if(isset($_SESSION['user'])){
 	$userList	=	$_SESSION['user'];
 }
