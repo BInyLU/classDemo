@@ -90,7 +90,7 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
         <div class="form-group">
           <label for="nickname" class="col-sm-3 control-label">昵称</label>
           <div class="col-sm-6">
-            <input id="nickname" class="form-control" name="nickname" type="type" value="张友" placeholder="昵称">
+            <input id="nickname" class="form-control" name="nickname" type="type"  placeholder="昵称">
             <p class="help-block">限制在 2-16 个字符</p>
           </div>
         </div>
