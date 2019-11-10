@@ -32,8 +32,8 @@ $comments_held=xiu_fetch_one("select count(1) as held from comments where status
    <?php include 'inc/navbar.php'; ?>
     <div class="container-fluid">
       <div class="jumbotron text-center">
-        <h2>课程研讨系统</h2>
-        <p>欢迎来到课程研讨系统</p>
+        <h2>课程研讨平台</h2>
+        <p>欢迎来到课程研讨平台</p>
         <p><a class="btn btn-primary btn-lg" href="/admin/post-add.php" role="button">发起问题</a></p>
       </div>
       <div class="row">
