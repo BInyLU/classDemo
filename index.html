@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YauCheung的博客 Thoughts, stories and ideas.</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/assets/css/index.css">
+  <link rel="stylesheet" href="/static/assets/css/base.css">
+  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+</head>
+<body>
+  <!--  <script>NProgress.start()</script> -->
+
+  <div class="banner">
+     <div class="container">
+       <div class="row">
+         <div class="col-xs-12">
+            <div class="banner-about">
+         <a href="/index.html"><h1>YUBLOG</h1>
+          <p>想法•故事•学习</p></a>
+      </div>
+         </div>
+       </div>
+     </div>
+  </div>
+  <div class="main">
+    <div class="container">
+       <div class="row">
+        <!-- <div class="fixed"> -->
+          <div class="col-sm-3 col-xs-12 hidden-xs">
+            <div class ="category">
+              <h3>&nbsp;&nbsp;分类标签</h3>
+              <div class="list-group" id="category-list">  
+              </div>
+            </div>
+            <div class="post" >
+              <h3>&nbsp;&nbsp;热门文章</h3>
+              <div id="hot_posts">     
+              </div>
+            
+            </div>
+            <div class="other hidden-xs">
+              <h3>&nbsp;&nbsp;其他</h3>
+              <div class="list-group">
+                <a href="/admin/login.php" class="list-group-item ">
+                博客管理
+                </a>
+                <a href="https://weibo.com/u/6018878594" class="list-group-item">我的微博</a>
+                <a href="javascript:;" class="list-group-item">QQ邮箱：1272125039@qq.com</a>
+                <a href="https://blog.csdn.net/YauCheun" class="list-group-item">我的CSDN</a>
+              
+              </div>
+           <!--  </div> -->
+            </div>
+            <div class="music hidden-xs hidden-sm ">
+                <div class="music-bg" id="music-img">
+                    <img src="/static/assets/img/music.jpg" alt="">
+                </div>
+                <audio id="bgMusic" src="https://music.163.com/song/media/outer/url?id=110805"></audio>
+                <span>“音乐是空气的诗歌”</span>
+            </div>
+          </div>
+          <div class="panel-group hidden-sm hidden-md hidden-lg middle" id="accordion " role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a role="button"  data-toggle="collapse" width="100%" style="display: block;" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    分类标签
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body" id="category-list1">
+                
+
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                  <a class="collapsed" role="button" width="100%" style="display: block;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                   热门文章
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body" id="hot_posts1">
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-9 col-xs-12" id="posts_detail">
+          </div> 
+
+       </div>
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="hidden-sm hidden-md hidden-lg col-xs-12">
+            <div class="other">
+              <h3>&nbsp;&nbsp;其他</h3>
+              <div class="list-group">
+                <a href="/admin/login.php" class="list-group-item ">
+                博客管理
+                </a>
+                <a href="https://weibo.com/u/6018878594" class="list-group-item">我的微博</a>
+                <a href="javascript:;" class="list-group-item">QQ邮箱：1272125039@qq.com</a>
+                <a href="https://blog.csdn.net/YauCheun" class="list-group-item">我的CSDN</a>
+              
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <p style="text-align: center;">©2019 由 <span><a href="https://weibo.com/u/6018878594">YauCheung</a></span> 版权所有</p>
+            <p style="text-align: center;"><a href="http://www.miitbeian.gov.cn
+">湘ICP备19007566号</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div id="goToTop"><a href="javascript:;"><img src="/static/assets/img/top.jpg" width="30" height="30" alt=""></a></div>
+  </div>
+  <script id="category_tmpl" type="text/x-jsrender">
+    {{for commens}}
+       <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
+                  <span class="badge">({{: count}})</span>
+                {{: name}}
+                </a>
+    {{/for}}
+  </script>
+   <script id="category_tmpl1" type="text/x-jsrender">
+    {{for commens}}
+       <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
+                  <span class="badge">({{: count}})</span>
+                {{: name}}
+                </a>
+    {{/for}}
+  </script>
+  <script id="hot_posts_tmpl" type="text/x-jsrender">
+    {{for commens}}
+        <div class="list-group">
+                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
+                  <h4 class="list-group-item-heading">{{: title}}</h4>
+                  <p class="list-group-item-text">view：<span>{{: views}}</span></p>
+                </a>
+              </div>
+    {{/for}}
+  </script>
+  <script id="hot_posts_tmpl1" type="text/x-jsrender">
+    {{for commens}}
+        <div class="list-group">
+                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
+                  <h4 class="list-group-item-heading">{{: title}}</h4>
+                  <p class="list-group-item-text">view：<span>{{: views}}</span></p>
+                </a>
+              </div>
+    {{/for}}
+  </script>
+  <script id="posts_detail_tmpl" type="text/x-jsrender">
+    {{for commens}}
+         <div class="post-list">
+                <h2><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
+                <div class="flex">
+               <p class="date"><i></i> &nbsp;{{updateDate:created}}</p>
+                <p class="print"></p>
+                <p ><i></i> &nbsp;view :&nbsp; <span class="read">  {{: views}}</span> </p>
+                <p class="print"></p>
+                <p><i></i> &nbsp; Comments：<span class="comments">{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p><br><span class="after"></span>
+             </div>
+                <div class="content" >{{: content}}</div><br>
+        
+            </div>
+    {{/for}}
+  </script>
+  <script src="/static/assets/vendors/jquery/jquery.js"></script>
+    <script src="/static/assets/vendors/jsrender/jsrender.js"></script>
+  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="/static/assets/js/index.js"></script>
+  <script src="/static/assets/js/music.js"></script>
+</body>
+</html>
