@@ -52,6 +52,9 @@ h1 {
 h2,h3,h4,h5,h6{
 	font-size: 20px!important;
 }
+h2>a,h2>p,h3>a,h3>p,h4>a,h4>p,h5>a,h5>p,h6>a,h6>p{
+	font-size: 20px!important;
+}
 
 /* Grouping content
    ========================================================================== */
