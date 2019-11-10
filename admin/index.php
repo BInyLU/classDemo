@@ -34,7 +34,7 @@ $comments_held=xiu_fetch_one("select count(1) as held from comments where status
       <div class="jumbotron text-center">
         <h2>课程研讨平台</h2>
         <p>欢迎来到课程研讨平台</p>
-        <p><a class="btn btn-primary btn-lg" href="/admin/post-add.php" role="button">发起问题</a></p>
+        <p><a class="btn btn-primary" href="/admin/post-add.php" role="button">发起文章</a></p>
       </div>
       <div class="row">
         <div class="col-md-6">
