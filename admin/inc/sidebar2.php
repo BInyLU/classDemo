@@ -25,8 +25,8 @@ $current_user=baixiu_get_current_user();
       <h3 class="name"><?php echo $current_user['nickname']; ?></h3>
     </div>
     <ul class="nav">
-      <li <?php echo $current_page==='index' ? 'class="active"':' ' ?>>
-        <a href="index.php"><i class="fa fa-dashboard"></i>仪表盘</a>
+      <li <?php echo $current_page==='user' ? 'class="active"':' ' ?>>
+        <a href="user.php"><i class="fa fa-dashboard"></i>仪表盘</a>
       </li>
       <?php $menu_posts = array('posts','categories','post-add'); ?>
       <li <?php echo in_array($current_page,$menu_posts) ? 'class="active"':' ' ?>>
@@ -34,7 +34,7 @@ $current_user=baixiu_get_current_user();
           <i class="fa fa-thumb-tack"></i>文章<i class="fa fa-angle-right"></i>
         </a>
         <ul id="menu-posts" class="collapse<?php echo in_array($current_page,$menu_posts) ? ' in':' ' ?>">
-          <li <?php echo $current_page==='post-add' ? 'class="active"':' ' ?>><a href="post-add.php">写文章</a></li>
+          <li <?php echo $current_page==='post-add' ? 'class="active"':' ' ?>><a href="post-add2.php">写文章</a></li>
         </ul>
       </li>
     </ul>

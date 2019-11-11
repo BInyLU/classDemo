@@ -52,7 +52,7 @@
           }else {
                $.post('/admin/api/post-comment.php',{id:id,nickname:nickname,content:content,time:currenttime}, function(data) {
            if (data>0) {
-             alert('评论成功,需管理员审核');
+             // alert('评论成功,需管理员审核');
              $.get('/admin/api/post-detail.php',{id:id},function(res) {
                var html=$('#post_comments').render({commens: res.post_comments});
                $('#post_C').html(html);
