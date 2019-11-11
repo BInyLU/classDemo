@@ -54,7 +54,8 @@ function login(){
   // }
   if ($user['root']=='root') {
      header('Location: /admin/index.php');
-  } else if ($user['user']=='user') {
+  } 
+  if ($user['root']=='') {
      header('Location: /admin/uesr.php');
    }//else{
   //    header('Location: /admin/uesr.php');
