@@ -55,7 +55,7 @@ $comments_held=xiu_fetch_one("select count(1) as held from comments where status
       </div>
     </div>
   </div>
-<?php $current_page='index' ?>
+<?php $current_page='user' ?>
    <?php include 'inc/sidebar2.php'; ?>
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
