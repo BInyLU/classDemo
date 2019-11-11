@@ -43,7 +43,7 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php'; ?>
+    <?php include 'inc/navbar2.php'; ?>
     <div class="container-fluid">
       <div class="page-title">
         <h1>我的个人资料</h1>

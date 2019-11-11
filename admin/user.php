@@ -29,7 +29,7 @@ $comments_held=xiu_fetch_one("select count(1) as held from comments where status
   <script>NProgress.start()</script>
 
   <div class="main">
-   <?php include 'inc/navbar.php'; ?>
+   <?php include 'inc/navbar2.php'; ?>
     <div class="container-fluid">
       <div class="jumbotron text-center">
         <h2>课程研讨平台</h2>
