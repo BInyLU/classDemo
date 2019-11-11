@@ -54,9 +54,12 @@ function login(){
   // }
   if ($user['root']=='root') {
      header('Location: /admin/index.php');
-  }else{
-     header('Location: /admin/uesr.php');
   }
+  if ($user['root']=='user') {
+     header('Location: /admin/uesr.php');
+  // }else{
+  //    header('Location: /admin/uesr.php');
+  // }
  
 }
 if ($_SERVER['REQUEST_METHOD']==='POST') {

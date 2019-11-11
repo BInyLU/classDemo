@@ -80,13 +80,13 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
             <p class="help-block">登录邮箱不允许修改</p>
           </div>
         </div>
-        <div class="form-group">
+       <!-- <div class="form-group">
           <label for="slug" class="col-sm-3 control-label">别名</label>
           <div class="col-sm-6">
             <input id="slug" class="form-control" name="slug" type="type" value="admin" placeholder="slug">
             <p class="help-block">https://chenyu.io/author/<strong>admin</strong></p>
           </div>
-        </div>
+        </div> -->
         <div class="form-group">
           <label for="nickname" class="col-sm-3 control-label">昵称</label>
           <div class="col-sm-6">
@@ -97,7 +97,7 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
         <div class="form-group">
           <label for="bio" class="col-sm-3 control-label">简介</label>
           <div class="col-sm-6">
-            <textarea id="bio" class="form-control" name="bio" placeholder="Bio" cols="30" rows="6">MAKE IT BETTER!</textarea>
+            <textarea id="bio" class="form-control" name="bio" placeholder="简介" cols="30" rows="6"></textarea>
           </div>
         </div>
         <div class="form-group">
