@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once '../functions.php';
 
 
@@ -8,23 +8,23 @@ $page=empty($_GET['page'])? 1 : (int)$_GET['page'];
 
 // $page= $page < 1 ? 1 : $page;
 if ($page<1) {
-  header('Location: /admin/posts.php?page=1'.$search);
+    header('Location: /admin/posts.php?page=1'.$search);
 }
 //接受筛选参数
 //分类筛选
 $where='1=1';
 $search='';
 if (!empty($_GET['category'])&& (int)$_GET['category'] !=-1) {
-  $where = $where .' and posts.category_id='. $_GET['category'];
-  $search.='&category='.$_GET['category'];
+    $where = $where .' and posts.category_id='. $_GET['category'];
+    $search.='&category='.$_GET['category'];
 }
 //状态筛选
 if (!empty($_GET['status'])&& (int)$_GET['status'] !=-1) {
-  $where = $where ." and posts.status='{$_GET['status']}'";
-  $search.='&status='.$_GET['status'];
+    $where = $where ." and posts.status='{$_GET['status']}'";
+    $search.='&status='.$_GET['status'];
 }
 if ($page<1) {
-  header('Location: /admin/posts.php?page=1'.$search);
+    header('Location: /admin/posts.php?page=1'.$search);
 }
   //计算出越过多少条
   $offset=($page-1)*$size;
@@ -36,12 +36,12 @@ inner join users on posts.user_id=users.id
 where {$where};")['count'];
 $total_pages=(int)ceil($total_count/$size);
 if ($total_pages==0) {
-  $total_pages=1;
-  $page=1;
+    $total_pages=1;
+    $page=1;
 }
 
 if ($page>$total_pages) {
-  header("Location: /admin/posts.php?page={$total_pages}".$search);
+    header("Location: /admin/posts.php?page={$total_pages}".$search);
 }
 
 
@@ -64,7 +64,7 @@ where {$where}
 order by posts.created DESC
 limit {$offset} ,{$size};");
 if (sizeof($post)!=0) {
-  $posts=$post;
+    $posts=$post;
 }
 
 //查询所有的分类
@@ -82,7 +82,8 @@ $begin = $end - $visiables+1;
 $begin=$begin < 1 ? 1 : $begin;  //确保不能小于1
 
 
-function convert_status($status){
+function convert_status($status)
+{
     $dict=array(
         'published'=>'已发布',
         'drafted'=>'草稿',
@@ -90,9 +91,10 @@ function convert_status($status){
     );
     return isset($dict[$status]) ? $dict[$status] : '未知';
 }
-function convert_date($created){
-   $timestamp=strtotime($created);
-    return date('Y年m月d日<b\r> H:i:s',$timestamp);
+function convert_date($created)
+{
+    $timestamp=strtotime($created);
+    return date('Y年m月d日<b\r> H:i:s', $timestamp);
 }
 
 // function get_category($category_id){
