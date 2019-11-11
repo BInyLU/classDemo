@@ -80,13 +80,13 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
             <p class="help-block">登录邮箱不允许修改</p>
           </div>
         </div>
-       <!-- <div class="form-group">
+       <div class="form-group" style="display: none;">
           <label for="slug" class="col-sm-3 control-label">别名</label>
           <div class="col-sm-6">
-            <input id="slug" class="form-control" name="slug" type="type" value="admin" placeholder="slug">
-            <p class="help-block">https://chenyu.io/author/<strong>admin</strong></p>
+            <input id="slug" class="form-control" name="slug" type="type" value="别名" placeholder="slug">
+            <p class="help-block">https://kbnvlf.coding.io/author/<strong>别名</strong></p>
           </div>
-        </div> -->
+        </div>
         <div class="form-group">
           <label for="nickname" class="col-sm-3 control-label">昵称</label>
           <div class="col-sm-6">
