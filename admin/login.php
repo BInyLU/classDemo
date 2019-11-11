@@ -54,8 +54,9 @@ function login(){
   }
   if ($user['root']=='root') {
      header('Location: /admin/index.php');
+  }else{
+      // $GLOBALS['message']='用户不存在！';
   }
-  $GLOBALS['message']='用户不存在！';
  
 }
 if ($_SERVER['REQUEST_METHOD']==='POST') {
