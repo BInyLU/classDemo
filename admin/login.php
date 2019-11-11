@@ -49,13 +49,13 @@ function login(){
 
 
   //到这里了就可以跳转了
-  if ($user['root']=='uesr') {
-     header('Location: /admin/uesr.php');
-  }
+  // if ($user['root']=='uesr') {
+     
+  // }
   if ($user['root']=='root') {
      header('Location: /admin/index.php');
   }else{
-      // $GLOBALS['message']='用户不存在！';
+     header('Location: /admin/uesr.php');
   }
  
 }
