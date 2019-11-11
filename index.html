@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>课程研讨平台</title>
+  <!-- <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> -->
+  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/assets/css/index.css">
+  <link rel="stylesheet" href="/static/assets/css/base.css">
+  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
+  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+</head>
+<body>
+  <!--  <script>NProgress.start()</script> -->
+
+  <div class="banner">
+     <div class="container">
+       <div class="row">
+         <div class="col-xs-12">
+            <div class="banner-about">
+			<a href="/index.html"><h1 style="letter-spacing: 10px;">课程研讨平台</h1><br><br>
+			<p>想法 • 故事 • 学习</p></a>
+			</div>
+         </div>
+       </div>
+     </div>
+  </div>
+  <div class="main">
+    <div class="container">
+       <div class="row">
+        <!-- <div class="fixed"> -->
+          <div class="col-sm-3 col-xs-12 hidden-xs">
+            <div class ="category">
+              <h3>&nbsp;&nbsp;分类标签</h3>
+              <div class="list-group" id="category-list">  
+              </div>
+            </div>
+            <div class="post" >
+              <h3>&nbsp;&nbsp;热门文章</h3>
+              <div id="hot_posts">     
+              </div>
+            
+            </div>
+            <div class="other hidden-xs">
+              <h3>&nbsp;&nbsp;其他</h3>
+              <div class="list-group">
+                <a href="/admin/login.php" class="list-group-item ">
+                个人中心
+                </a>
+              </div>
+           <!--  </div> -->
+            </div>
+          </div>
+          <div class="col-sm-9 col-xs-12" id="posts_detail">
+          </div> 
+       </div>
+    </div>
+    <div class="foot">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <p style="text-align: center;">©2019 由 <span><a href="https://weibo.com/u/6018878594">小陆</a></span> 版权所有</p>
+            <!-- <p style="text-align: center;"><a href="http://www.miitbeian.gov.cn
+">湘ICP备19007566号</a></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+      <div id="goToTop"><a href="javascript:;"><img src="/static/assets/img/top.jpg" width="30" height="30" alt=""></a></div>
+  </div>
+  <script id="category_tmpl" type="text/x-jsrender">
+    {{for commens}}
+       <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
+                  <span class="badge">({{: count}})</span>
+                {{: name}}
+                </a>
+    {{/for}}
+  </script>
+   <script id="category_tmpl1" type="text/x-jsrender">
+    {{for commens}}
+       <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
+                  <span class="badge">({{: count}})</span>
+                {{: name}}
+                </a>
+    {{/for}}
+  </script>
+  <script id="hot_posts_tmpl" type="text/x-jsrender">
+    {{for commens}}
+        <div class="list-group">
+                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
+                  <h4 class="list-group-item-heading">{{: title}}</h4>
+                  <p class="list-group-item-text">view：<span>{{: views}}</span></p>
+                </a>
+              </div>
+    {{/for}}
+  </script>
+  <script id="hot_posts_tmpl1" type="text/x-jsrender">
+    {{for commens}}
+        <div class="list-group">
+                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
+                  <h4 class="list-group-item-heading">{{: title}}</h4>
+                  <p class="list-group-item-text">view：<span>{{: views}}</span></p>
+                </a>
+              </div>
+    {{/for}}
+  </script>
+  <script id="posts_detail_tmpl" type="text/x-jsrender">
+    {{for commens}}
+         <div class="post-list">
+                <h2><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
+                <div class="flex">
+               <p class="date"><i></i> &nbsp;{{updateDate:created}}</p>
+                <p class="print"></p>
+                <p ><i></i> &nbsp;view :&nbsp; <span class="read">  {{: views}}</span> </p>
+                <p class="print"></p>
+                <p><i></i> &nbsp; Comments：<span class="comments">{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p><br><span class="after"></span>
+             </div>
+                <div class="content" >{{: content}}</div><br>
+        
+            </div>
+    {{/for}}
+  </script>
+  <script src="/static/assets/vendors/jquery/jquery.js"></script>
+    <script src="/static/assets/vendors/jsrender/jsrender.js"></script>
+  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="/static/assets/js/index.js"></script>
+  <!-- <script src="/static/assets/js/music.js"></script> -->
+</body>
+</html>
