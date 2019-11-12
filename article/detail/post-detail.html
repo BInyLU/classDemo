@@ -194,11 +194,13 @@
   </script>
   <script id="post_comments" type="text/x-jsrender">
     {{for commens}}
-        <div class="comments">
-          <p class="date">{{updateDate:created}}</p>
-          <p class="nickname">作者：<span class="author">{{: author}}</span> </p><br>
-          <h5>{{: content}}</h5>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">作者：{{: author}}</h4>
+          <p>{{updateDate:created}}</p>
+          <p>{{: content}}</p>
         </div>
+      </div>
     {{/for}}
   </script>
 
