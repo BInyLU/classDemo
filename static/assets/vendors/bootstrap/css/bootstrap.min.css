@@ -3,12 +3,6 @@
  * Copyright 2011-2017 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-h2,h3,h4,h5,h6{
-	font-size: 20px!important;
-}
-h2>a,h2>p,h3>a,h3>p,h4>a,h4>p,h5>a,h5>p,h6>a,h6>p{
-	font-size: 20px!important;
-}
 /*!
  * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=d964310a55e58ea01143cca8e9984d43)
  * Config saved to config.json and https://gist.github.com/d964310a55e58ea01143cca8e9984d43
