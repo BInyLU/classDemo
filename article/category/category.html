@@ -134,14 +134,7 @@
                 </a>
     {{/for}}
   </script>
-  <script id="category_tmpl1" type="text/x-jsrender">
-    {{for commens}}
-       <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
-                  <span class="badge">({{: count}})</span>
-                {{: name}}
-                </a>
-    {{/for}}
-  </script>
+
   <script id="hot_posts_tmpl" type="text/x-jsrender">
     {{for commens}}
         <div class="list-group">
@@ -152,16 +145,7 @@
               </div>
     {{/for}}
   </script>
-  <script id="hot_posts_tmpl1" type="text/x-jsrender">
-    {{for commens}}
-        <div class="list-group">
-                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
-                  <h4 class="list-group-item-heading">{{: title}}</h4>
-                  <p class="list-group-item-text">阅读量：<span>{{: views}}</span></p>
-                </a>
-              </div>
-    {{/for}}
-  </script>
+
   <script id="posts_detail_tmpl" type="text/x-jsrender">
     {{for commens}}
          <div class="post-list">
