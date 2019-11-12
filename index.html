@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="/static/assets/css/index.css">
   <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
   <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <script src="/static/assets/vendors/jquery/jquery.js"></script>
+  <script src="/static/assets/vendors/jsrender/jsrender.js"></script>
+  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="/static/assets/js/index.js"></script>
 </head>
 
 <body>
@@ -65,8 +69,6 @@
         <div class="row">
           <div class="col-xs-12">
             <p style="text-align: center;">©2019 由 <span><a href="https://weibo.com/u/6018878594">小陆</a></span> 版权所有</p>
-            <!-- <p style="text-align: center;"><a href="http://www.miitbeian.gov.cn
-">湘ICP备19007566号</a></p> -->
           </div>
         </div>
       </div>
@@ -77,19 +79,12 @@
   <script id="category_tmpl" type="text/x-jsrender">
     {{for commens}}
        <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
-                  <span class="badge">({{: count}})</span>
-                {{: name}}
-                </a>
+        <span class="badge">({{: count}})</span>
+      {{: name}}
+      </a>
     {{/for}}
   </script>
-  <!-- <script id="category_tmpl1" type="text/x-jsrender">
-    {{for commens}}
-       <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
-                  <span class="badge">({{: count}})</span>
-                {{: name}}
-                </a>
-    {{/for}}
-  </script> -->
+
   <script id="hot_posts_tmpl" type="text/x-jsrender">
     {{for commens}}
         <div class="list-group">
@@ -100,16 +95,7 @@
 		</div>
     {{/for}}
   </script>
-  <!-- <script id="hot_posts_tmpl1" type="text/x-jsrender">
-    {{for commens}}
-        <div class="list-group">
-                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
-                  <h4 class="list-group-item-heading">{{: title}}</h4>
-                  <p class="list-group-item-text">阅读量：<span>{{: views}}</span></p>
-                </a>
-              </div>
-    {{/for}}
-  </script> -->
+
   <script id="posts_detail_tmpl" type="text/x-jsrender">
     {{for commens}}
          <div class="post-list">
@@ -125,11 +111,7 @@
         </div>
     {{/for}}
   </script>
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/jsrender/jsrender.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
-  <script src="/static/assets/js/index.js"></script>
-  <!-- <script src="/static/assets/js/music.js"></script> -->
+
 </body>
 
 </html>
