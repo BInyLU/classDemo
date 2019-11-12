@@ -1,11 +1,11 @@
-$(function($) {
-	$(document).ajaxStart(function() {
+$(function ($) {
+	$(document).ajaxStart(function () {
 		NProgress.start();
-	}).ajaxStop(function() {
+	}).ajaxStop(function () {
 		NProgress.done();
 	});
-	
-	$.get('/admin/api/category.php', function(data) {
+
+	$.get('/admin/api/category.php', function (data) {
 		var html = $('#category_tmpl').render({
 			commens: data.category
 		});
@@ -23,7 +23,7 @@ $(function($) {
 		});
 		$('#hot_posts1').html(html);
 		$.views.converters({
-			updateDate: function(val) {
+			updateDate: function (val) {
 				return val.substr(0, 10)
 			}
 		})
@@ -40,7 +40,7 @@ $(function($) {
 
 	$('#goToTop').hide(); //隐藏go to top按钮
 
-	$(window).scroll(function() {
+	$(window).scroll(function () {
 		// console.log($(this).scrollTop());
 
 		//当window的scrolltop距离大于1时，go  
@@ -51,7 +51,7 @@ $(function($) {
 		}
 	});
 
-	$('#goToTop a').click(function() {
+	$('#goToTop a').click(function () {
 		$('html ,body').animate({
 			scrollTop: 0
 		}, 300);

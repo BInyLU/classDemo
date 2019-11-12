@@ -2,15 +2,15 @@ var loc = location.href;
 var n1 = loc.length; //地址的总长度
 var n2 = loc.indexOf("="); //取得=号的位置
 var id = decodeURI(loc.substr(n2 + 1, n1 - n2)); //从=号后面的内容
-$(function($) {
-	$(document).ajaxStart(function() {
+$(function ($) {
+	$(document).ajaxStart(function () {
 		NProgress.start();
-	}).ajaxStop(function() {
+	}).ajaxStop(function () {
 		NProgress.done();
 	});
 
 
-	$.get('/admin/api/category.php', function(data) {
+	$.get('/admin/api/category.php', function (data) {
 		var html = $('#category_tmpl').render({
 			commens: data.category
 		});
@@ -29,13 +29,13 @@ $(function($) {
 		$('#hot_posts').html(html);
 
 		$.views.converters({
-			updateDate: function(val) {
+			updateDate: function (val) {
 				return val.substr(0, 10)
 			}
 		})
 		$.get('/admin/api/post-detail.php', {
 			id: id
-		}, function(res) {
+		}, function (res) {
 			var html = $('#posts_detail').render({
 				commens: res.post_word
 			});
@@ -48,7 +48,7 @@ $(function($) {
 
 	});
 
-	$('#submit').on('click', function() {
+	$('#submit').on('click', function () {
 		var nickname = $('#nickname').val();
 		var content = $('#content').val();
 		var d = new Date();
@@ -70,11 +70,11 @@ $(function($) {
 				nickname: nickname,
 				content: content,
 				time: currenttime
-			}, function(data) {
+			}, function (data) {
 				if (data > 0) {
 					$.get('/admin/api/post-detail.php', {
 						id: id
-					}, function(res) {
+					}, function (res) {
 						var html = $('#post_comments').render({
 							commens: res.post_comments
 						});
@@ -92,7 +92,7 @@ $(function($) {
 
 	$('#goToTop').hide(); //隐藏go to top按钮
 
-	$(window).scroll(function() {
+	$(window).scroll(function () {
 		// console.log($(this).scrollTop());
 
 		//当window的scrolltop距离大于1时，go  
@@ -103,7 +103,7 @@ $(function($) {
 		}
 	});
 
-	$('#goToTop a').click(function() {
+	$('#goToTop a').click(function () {
 		$('html ,body').animate({
 			scrollTop: 0
 		}, 300);
