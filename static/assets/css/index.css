@@ -14,3 +14,6 @@ body{
 #goToTop{
     text-align: right
 }
+.carousel{
+    margin-top: 60px!important;
+}
