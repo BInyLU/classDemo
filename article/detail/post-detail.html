@@ -185,14 +185,11 @@
 
   <script id="posts_detail" type="text/x-jsrender">
     {{for commens}}
-        <div class="post-detail-header">
-          <h2>{{: title}}</h2>
-          <p class="date"><i>时间</i><span>{{updateDate:created}}</span> </p>
-          <p> <i>阅读量</i> <span class="read">{{: views}}</span></p>
-        </div>
-        <div class="post-detail-content">
-          {{: content}}
-        </div> 
+      <div class="page-header">
+        <h2>{{: title}}</h2>
+        <p><span>时间:{{updateDate:created}}</span><span>阅读量:{{: views}}</span><span>评论数:{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p>
+      </div>
+      <div class="lead">{{: content}}</div>
     {{/for}}
   </script>
   <script id="post_comments" type="text/x-jsrender">
