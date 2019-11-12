@@ -10,18 +10,18 @@ $(function ($) {
 			commens: data.category
 		});
 		$('#category-list').html(html);
-		var html = $('#category_tmpl1').render({
-			commens: data.category
-		});
-		$('#category-list1').html(html);
+		// var html = $('#category_tmpl1').render({
+		// 	commens: data.category
+		// });
+		// $('#category-list1').html(html);
 		var html = $('#hot_posts_tmpl').render({
 			commens: data.hot_post
 		});
 		$('#hot_posts').html(html);
-		var html = $('#hot_posts_tmpl1').render({
-			commens: data.hot_post
-		});
-		$('#hot_posts1').html(html);
+		// var html = $('#hot_posts_tmpl1').render({
+		// 	commens: data.hot_post
+		// });
+		// $('#hot_posts1').html(html);
 		$.views.converters({
 			updateDate: function (val) {
 				return val.substr(0, 10)

@@ -75,6 +75,7 @@ $(function ($) {
 					$.get('/admin/api/post-detail.php', {
 						id: id
 					}, function (res) {
+						alert('评论成功！等待审核~');
 						var html = $('#post_comments').render({
 							commens: res.post_comments
 						});

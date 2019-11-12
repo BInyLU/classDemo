@@ -154,59 +154,58 @@
   <script id="category_tmpl" type="text/x-jsrender">
     {{for commens}}
        <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
-                  <span class="badge">({{: count}})</span>
-                {{: name}}
-                </a>
+        <span class="badge">({{: count}})</span>
+      {{: name}}
+      </a>
     {{/for}}
   </script>
   <script id="category_tmpl1" type="text/x-jsrender">
     {{for commens}}
        <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
-                  <span class="badge">({{: count}})</span>
-                {{: name}}
-                </a>
+          <span class="badge">({{: count}})</span>
+        {{: name}}
+        </a>
     {{/for}}
   </script>
   <script id="hot_posts_tmpl" type="text/x-jsrender">
     {{for commens}}
         <div class="list-group">
-                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
-                  <h4 class="list-group-item-heading">{{: title}}</h4>
-                  <p class="list-group-item-text">view：<span>{{: views}}</span></p>
-                </a>
-              </div>
+          <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
+            <h4 class="list-group-item-heading">{{: title}}</h4>
+            <p class="list-group-item-text">阅读量：<span>{{: views}}</span></p>
+          </a>
+        </div>
     {{/for}}
   </script>
   <script id="hot_posts_tmpl1" type="text/x-jsrender">
     {{for commens}}
         <div class="list-group">
-                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
-                  <h4 class="list-group-item-heading">{{: title}}</h4>
-                  <p class="list-group-item-text">view：<span>{{: views}}</span></p>
-                </a>
-              </div>
+          <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
+            <h4 class="list-group-item-heading">{{: title}}</h4>
+            <p class="list-group-item-text">阅读量：<span>{{: views}}</span></p>
+          </a>
+        </div>
     {{/for}}
   </script>
   <script id="posts_detail" type="text/x-jsrender">
     {{for commens}}
         <div class="post-detail-header">
-                  <h2>{{: title}}</h2>
-                  <p class="date"><i>时间</i><span>{{updateDate:created}}</span> </p>
-                  <p> <i>阅读量</i> <span class="read">{{: views}}</span></p>
-               </div>
-               <div class="post-detail-content">
-                {{: content}}
-               </div> 
+          <h2>{{: title}}</h2>
+          <p class="date"><i>时间</i><span>{{updateDate:created}}</span> </p>
+          <p> <i>阅读量</i> <span class="read">{{: views}}</span></p>
+        </div>
+        <div class="post-detail-content">
+          {{: content}}
+        </div> 
     {{/for}}
   </script>
   <script id="post_comments" type="text/x-jsrender">
     {{for commens}}
+        <div class="comments">
+          <p class="date">{{updateDate:created}}</p>
+          <p class="nickname">作者：<span class="author">{{: author}}</span> </p><br>
+          <h5>{{: content}}</h5>
         </div>
-                <div class="comments">
-                 <p class="date">{{updateDate:created}}</p>
-                 <p class="nickname">作者：<span class="author">{{: author}}</span> </p><br>
-                 <h5>{{: content}}</h5>
-               </div>
     {{/for}}
   </script>
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
