@@ -64,13 +64,13 @@
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img class="first-slide" src="../../static/assets/img/banner.png" alt="First slide">
+        <img class="first-slide" src="../../static/assets/img/banner.jpg" alt="First slide">
       </div>
       <div class="item">
-        <img class="first-slide" src="../../static/assets/img/banner.png" alt="First slide">
+        <img class="first-slide" src="../../static/assets/img/banner.jpg" alt="First slide">
       </div>
       <div class="item">
-        <img class="first-slide" src="../../static/assets/img/banner.png" alt="First slide">
+        <img class="first-slide" src="../../static/assets/img/banner.jpg" alt="First slide">
       </div>
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -158,17 +158,11 @@
 
   <script id="posts_detail_tmpl" type="text/x-jsrender">
     {{for commens}}
-      <div class="post-list">
-        <h2><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
-        <div class="flex">
-          <p class="date"><i>时间</i><span>{{updateDate:created}}</span> </p>
-          <p class="print"></p>
-          <p ><i>阅读量</i> <span class="read">  {{: views}}</span> </p>
-          <p class="print"></p>
-          <p><i>评论数</i><span class="comments">{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p><br><span class="after"></span>
-        </div>
-        <div class="content" >{{: content}}</div><br>
-    </div>
+      <div class="page-header">
+        <h1><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h1>
+        <p><span>时间:{{updateDate:created}}</span><span>阅读量:{{: views}}</span><span>评论数:{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p>
+        <p class="lead">{{: content}}</p>
+      </div>
     {{/for}}
   </script>
 
