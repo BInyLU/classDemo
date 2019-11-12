@@ -11,12 +11,12 @@ define('DB_HOST', 'mysql.coding.io');
 /**
  * 数据库用户名
  */
-define('DB_USER', 'user-V5f6fbAqQb');
+define('DB_USER', 'user-AD631RbIOB');
 /**
  * 数据库密码
  */
-define('DB_PASS', 'jfjPi$Qd;qx/X`U)Edp{');
+define('DB_PASS', 'v_7l4t^2e$:[}{ds4ZE=');
 /**
  * 数据库名字
  */
-define('DB_NAME', 'db-wsdAeWwLCM');
+define('DB_NAME', 'db-TZ6ZLZ3BCQ');
