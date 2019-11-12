@@ -33,18 +33,18 @@
         <!-- <div class="fixed"> -->
           <div class="col-sm-3 col-xs-12 hidden-xs">
             <div class ="category">
-              <h3>&nbsp;&nbsp;分类标签</h3>
+              <h3>分类标签</h3>
               <div class="list-group" id="category-list">  
               </div>
             </div>
             <div class="post" >
-              <h3>&nbsp;&nbsp;热门文章</h3>
+              <h3>热门文章</h3>
               <div id="hot_posts">     
               </div>
             
             </div>
             <div class="other hidden-xs">
-              <h3>&nbsp;&nbsp;其他</h3>
+              <h3>其他</h3>
               <div class="list-group">
                 <a href="/admin/login.php" class="list-group-item ">
                 个人中心
@@ -113,9 +113,9 @@
                 <div class="flex">
                <p class="date"><i></i> &nbsp;{{updateDate:created}}</p>
                 <p class="print"></p>
-                <p ><i>阅读量</i> &nbsp;view :&nbsp; <span class="read">  {{: views}}</span> </p>
+                <p ><i>阅读量</i> <span class="read">  {{: views}}</span> </p>
                 <p class="print"></p>
-                <p><i></i> &nbsp; Comments：<span class="comments">{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p><br><span class="after"></span>
+                <p><i>评论数</i><span class="comments">{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p><br><span class="after"></span>
              </div>
                 <div class="content" >{{: content}}</div><br>
         
