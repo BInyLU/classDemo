@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>课程研讨平台</title>
   <!-- <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> -->
+  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="/static/assets/css/index.css">
+  <link rel="stylesheet" href="/static/assets/css/base.css">
+  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css"> -->
   <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
@@ -74,6 +78,14 @@
                 </a>
     {{/for}}
   </script>
+  <!-- <script id="category_tmpl1" type="text/x-jsrender">
+    {{for commens}}
+       <a class="list-group-item" href="/article/category/category.html?id={{: id}}">
+                  <span class="badge">({{: count}})</span>
+                {{: name}}
+                </a>
+    {{/for}}
+  </script> -->
   <script id="hot_posts_tmpl" type="text/x-jsrender">
     {{for commens}}
         <div class="list-group">
@@ -84,7 +96,32 @@
               </div>
     {{/for}}
   </script>
-
+ <!-- <script id="hot_posts_tmpl1" type="text/x-jsrender">
+    {{for commens}}
+        <div class="list-group">
+                <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
+                  <h4 class="list-group-item-heading">{{: title}}</h4>
+                  <p class="list-group-item-text">view：<span>{{: views}}</span></p>
+                </a>
+              </div>
+    {{/for}}
+  </script> -->
+  <script id="posts_detail_tmpl" type="text/x-jsrender">
+    {{for commens}}
+         <div class="post-list">
+                <h2><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
+                <div class="flex">
+               <p class="date"><i></i> &nbsp;{{updateDate:created}}</p>
+                <p class="print"></p>
+                <p ><i>阅读量</i> &nbsp;view :&nbsp; <span class="read">  {{: views}}</span> </p>
+                <p class="print"></p>
+                <p><i></i> &nbsp; Comments：<span class="comments">{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p><br><span class="after"></span>
+             </div>
+                <div class="content" >{{: content}}</div><br>
+        
+            </div>
+    {{/for}}
+  </script>
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
     <script src="/static/assets/vendors/jsrender/jsrender.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
