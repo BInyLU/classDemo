@@ -108,7 +108,7 @@ $current_user_id=xiu_fetch_one("select id from users where email='{$current_user
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>Add new post &laquo; Admin</title>
+  <title>课程研讨平台系统</title>
   <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="/static/assets/vendors/simplemde/simplemde.min.css">
@@ -202,7 +202,7 @@ $current_user_id=xiu_fetch_one("select id from users where email='{$current_user
        <div class="form-group">
        <label for="slug">别名</label>
        <input id="slug" class="form-control" name="slug" type="text" placeholder="slug" value="<?php echo isset($_POST['slug']) ? $_POST['slug'] : '' ;?>">
-            <p class="help-block">https://chenyu.io/post/<strong>slug</strong></p>
+            <p class="help-block">https://ebuxsf.coding.io/<strong>slug</strong></p>
             </div>
             <div class="form-group">
             <label for="category">所属分类</label>

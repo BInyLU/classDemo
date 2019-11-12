@@ -68,7 +68,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <p style="text-align: center;">©2019 由 <span><a href="https://weibo.com/u/6018878594">小陆</a></span> 版权所有</p>
+            <p style="text-align: center;">©2019 由 <span><a href="https://gdfksi.coding.io/">小陆</a></span> 版权所有</p>
           </div>
         </div>
       </div>
@@ -88,11 +88,11 @@
   <script id="hot_posts_tmpl" type="text/x-jsrender">
     {{for commens}}
         <div class="list-group">
-			<a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
-			  <h4 class="list-group-item-heading">{{: title}}</h4>
-			  <p class="list-group-item-text">阅读量：<span>{{: views}}</span></p>
-			</a>
-		</div>
+          <a href="/article/detail/post-detail.html?id={{: id}}" class="list-group-item ">
+            <h4 class="list-group-item-heading">{{: title}}</h4>
+            <p class="list-group-item-text">阅读量：<span>{{: views}}</span></p>
+          </a>
+		    </div>
     {{/for}}
   </script>
 
@@ -102,9 +102,7 @@
             <h2><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
             <div class="flex">
               <p class="date"><i>时间</i><span>{{updateDate:created}}</span> </p>
-              <p class="print"></p>
               <p ><i>阅读量</i> <span class="read">  {{: views}}</span> </p>
-              <p class="print"></p>
               <p><i>评论数</i><span class="comments">{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p><br><span class="after"></span>
             </div>
             <div class="content" >{{: content}}</div><br>

@@ -53,7 +53,7 @@ var_dump($password);
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>Password reset &laquo; Admin</title>
+  <title>课程研讨平台系统</title>
   <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">

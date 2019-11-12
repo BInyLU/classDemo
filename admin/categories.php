@@ -61,7 +61,7 @@ $categories=xiu_fetch_all('select * from categories;');
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>Categories &laquo; Admin</title>
+  <title>课程研讨平台系统</title>
   <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
@@ -117,7 +117,7 @@ $categories=xiu_fetch_all('select * from categories;');
             <div class="form-group">
               <label for="slug">别名</label>
               <input id="slug" class="form-control" name="slug" type="text" placeholder="slug">
-              <p class="help-block">https://chenyu.io/category/<strong>slug</strong></p>
+              <p class="help-block">https://ebuxsf.coding.io/<strong>slug</strong></p>
             </div>
             <div class="form-group">
               <button class="btn btn-primary" type="submit">添加</button>
