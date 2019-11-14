@@ -73,7 +73,7 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;}
 
 
 /* 主内容右边 */
-.mainRight{float: right;width: 69%;box-shadow: 10px 10px 30px rgba(0,0,0,.1);border-radius: 10px;}
+.mainRight{float: right;width: 69%;border-radius: 10px;}
 #posts_detail h2{margin-bottom: 5px;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,.1);}
 #posts_detail p{margin-top: 10px;}
 #posts_detail span{font-size: 12px;margin: 5px 20px 5px 0 ;}
