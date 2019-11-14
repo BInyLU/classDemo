@@ -79,6 +79,30 @@ if ($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['action']) && $_GET['actio
   <link rel="stylesheet" href="/static/assets/vendors/animate/animate.css">
 </head>
 <body>
+	<!-- 头部菜单 -->
+	<div class="header">
+		<div class="content">
+			<div class="nav">
+				<ul>
+					<li><a href="https://ebuxsf.coding.io">首页</a></li>
+					<li><a href="https://ebuxsf.coding.io/article">话题研讨</a></li>
+					<li><a href="https://ebuxsf.coding.io/admin">个人中心</a></li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	<!-- banner背景 -->
+	<div class="m-bg-all">
+		<div class="m-bg">
+			<div class="m-bg-mask m-bg-mask0"></div>
+			<div class="m-bg-mask m-bg-mask1"></div>
+			<div class="m-bg-mask m-bg-mask2"></div>
+			<div class="m-bg-mask m-bg-mask3"></div>
+		</div>
+	</div>
   <div class="login">
     <!-- 可以通过在form上添加novalidate取消浏览器自带的校验功能 -->
     <!-- autocomplete="off" 关闭客户端的自动完成功能 -->
