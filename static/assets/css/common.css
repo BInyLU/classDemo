@@ -61,11 +61,16 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;}
 .logoBox a:hover{box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);}
 
 /* 主内容区域 */
-.main{width: 100%;margin-top: 150px;}
-.card{margin: 10px 0; border-radius: 10px; background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);padding: 20px;}
+.main{width: 100%;margin-top: 100px;}
+.card{margin-top: 10px; border-radius: 10px; background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);padding: 20px;}
+
+#category-list a{display: inline-block;padding: 10px 20px;background-image: linear-gradient(120deg,#8121ff,#5e5ef7); color: #fff;margin: 15px 0;border-radius: 10px;}
 
 /* 主内容左边 */
 .mainLeft{float: left;width: 30%;}
+.smlcard{margin: 10px 0;border-bottom: solid rgba(0,0,0,.1);}
+.smlcard a p{font-size: 14px;}
+
 
 /* 主内容右边 */
-.mainRight{float: right;width: 60%;background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);border-radius: 10px;}
+.mainRight{float: right;width: 60%;box-shadow: 10px 10px 30px rgba(0,0,0,.1);border-radius: 10px;}
