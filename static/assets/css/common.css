@@ -89,18 +89,18 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;lef
 .page-header{text-align: center;padding: 20px;}
 .page-header h2{margin-bottom: 5px ;padding-bottom: 5px ;border-bottom: 1px solid rgba(0,0,0,.1);}
 .page-header p span{font-size: 12px ;margin: 0 20px;color: #666;}
-.page-content{padding: 20px;height: 100px;transition: all .5s;}
-.page-content:hover{height: auto;}
+.page-content{padding: 20px;height: 100px;transition: all .5s;overflow: hidden;}
+#postdetail:hover{height: auto;}
 
 /* 评论排版 */
 .post-comments,.media,.post-commets-list h4{background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);margin: 20px 0;padding: 20px;border-radius: 10px;}
 .form-group{padding: 10px 0;}
-input:focus,textarea:focus{border: none;}
+/* input:focus,textarea:focus{border: none;} */
 .post-comments input,.post-comments textarea{padding: 15px;border: 1px solid #ccc;margin: 10px 0;border-radius: 5px;width: 95%;}
 .post-comments {position: fixed;width: 60%; top: 10%;display: none;z-index: 3;}
 .commenBtn{position: fixed;bottom: 5%;right: 5%; width: 100px ;height: 30px;line-height: 30px;text-align: center;padding: 10px 15px ;border-radius: 5px ;box-shadow: 10px 10px 30px rgba(0,0,0,.2);background: #fff;border: 1px solid;}
 .commenBtnpost,.commenBtnclose{display: inline-block;text-align: center;padding: 10px 15px;width: 95%;color: #fff;background: #006699;border-radius: 5px;margin: 10px 0;}
-
+.media-heading{padding-top: 10px;border-top: 1px solid rgba(0,0,0,.1);}
 .commenMask{position: fixed;top: 0; width: 100%;height: 100vh;background: rgba(0,0,0,.8);display: none;z-index: 2;}
 
 /* 自适应 */
