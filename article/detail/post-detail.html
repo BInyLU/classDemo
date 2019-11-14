@@ -51,21 +51,18 @@
 				<div class="post-comments">
 					<form class="form-horizontal">
 						<div class="form-group">
-							<label for="nickname" class="col-sm-1 control-label">昵称</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="nickname" placeholder="昵称">
-							</div>
+							<label for="nickname">昵称：</label>
+							<input type="text" id="nickname" placeholder="昵称">
 						</div>
 						<div class="form-group">
-							<label for="content" class="col-sm-1 control-label">评论内容</label>
-							<div class="col-sm-6">
-								<textarea class="form-control" id="content" rows="3"></textarea>
-							</div>
+							<label for="content">评论内容：</label>
+							<textarea id="content" rows="5"></textarea>
 						</div>
 						<div class="form-group">
-							<div class="col-sm-offset-1 col-sm-10">
-								<a href="javascript:;" class="btn btn-default" id="submit">提交</a>
-							</div>
+							<a href="javascript:;" id="submit" class="commenBtnpost">提交</a>
+						</div>
+						<div class="form-group">
+							<a href="javascript:;" class="commenBtnclose">关闭</a>
 						</div>
 					</form>
 				</div>
@@ -86,14 +83,31 @@
 			{{for commens}}
 			  <div class="media">
 				<div class="media-body">
-				  <h5 class="media-heading">作者：{{: author}}</h5>
-				  <p>{{updateDate:created}}</p>
 				  <p>{{: content}}</p>
+				  <h4 class="media-heading">作者：{{: author}} &nbsp;&nbsp;时间：{{updateDate:created}}</h4>
+				  <p></p>
 				</div>
 			  </div>
 			{{/for}}
 		</script>
 		
+		<div class="commenBtn">我要评论</div>
+		
+		<script type="text/javascript">
+			var commenBtn = document.querySelector('.commenBtn')
+			var post-comments = document.querySelector('.post-comments')
+			var commenBtnpost = document.querySelector('.commenBtnpost')
+			var commenBtnclose = document.querySelector('.commenBtnclose')
+			commenBtn.click(function(){
+				post-comments.fadeIn()
+			})
+			commenBtnpost.click(function(){
+				post-comments.hide()
+			})
+			commenBtnclose.click(function(){
+				post-comments.hide()
+			})
+		</script>
 		
 
 	</body>
