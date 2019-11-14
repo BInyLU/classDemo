@@ -39,7 +39,7 @@ img{border-radius: 4px;}
 .content{width:1200px;margin:0 auto;position: relative;}
 
 /* 头部内容 */
-.header{width:100%;top:0;z-index:9999}
+.header{width:100%;z-index:9999}
 .nav ul li{float: left;}
 .nav ul li a{display: inline-block;color: #fff;padding: 25px;text-shadow: 4px 4px 10px rgba(0,0,0,.2);transition: all .4s;}
 .nav ul li a:hover{color: #27cdfd;}
@@ -113,4 +113,9 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;lef
 	.logoBox span{font-size: 30px;padding-left: 50px;}
 	.mainLeft,.mainRight{float: none;width: 100%;}
 	.nav a{padding: 15px;}
+	.post-comments input,.post-comments textarea,.commenBtnpost,.commenBtnclose{width: 90%;}
+	.post-comments{width: 80%;}
+	.header{position: fixed;width: 100%;background-image: linear-gradient(120deg,#8121ff,#5e5ef7);bottom: 0;}
+	.nav ul li{float: none;}
+	.nav ul li a{padding: 10px;}
 }
