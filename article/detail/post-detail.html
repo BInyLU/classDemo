@@ -88,17 +88,21 @@
 		</script>
 		
 		<div class="commenBtn">我要评论</div>
+		<div class="commenMask"></div>
 		
 		<script type="text/javascript">
 
 			$('.commenBtn').click(function(){
 				$('.post-comments').show()
+				$('.commenMask').show()
 			})
 			$('.commenBtnclose').click(function(){
 				$('.post-comments').hide()
+				$('.commenMask').hide()
 			})
 			$('.commenBtnpost').click(function(){
 				$('.post-comments').hide()
+				$('.commenMask').hide()
 			})
 		</script>
 		
