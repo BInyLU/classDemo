@@ -373,4 +373,5 @@ body {
 .m-bg .m-bg-mask1{bottom:180px;right:0;width:36%;background-image:linear-gradient(120deg,#28c5f5,#6682fe)}
 .m-bg .m-bg-mask2{bottom:540px;left:0;width:20%;height:240px;background-image:linear-gradient(120deg,#8121ff,#5e5ef7)}
 .m-bg .m-bg-mask3{bottom:540px;left:20%;width:70%;height:240px;background-image:linear-gradient(-225deg,#5f2bff,#6088fe 48%,#22ccf6)}
-.m-bg::after{content:'';position:absolute;width:100%;height:100%;top:10px;left:5%;background:inherit;filter:blur(15px);opacity:.65;z-index:-1}
+.m-bg::after{content:'';position:absolute;width:90%;height:100%;top:10px;left:5%;background:inherit;filter:blur(15px);opacity:.65;z-index:-1}
+ul{list-style:none}
