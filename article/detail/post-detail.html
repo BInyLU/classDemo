@@ -58,12 +58,8 @@
 							<label for="content">评论内容：</label>
 							<textarea id="content" rows="5"></textarea>
 						</div>
-						<div class="form-group">
-							<a href="javascript:;" id="submit" class="commenBtnpost">提交</a>
-						</div>
-						<div class="form-group">
-							<a href="javascript:;" class="commenBtnclose">关闭</a>
-						</div>
+						<a href="javascript:;" id="submit" class="commenBtnpost">提交</a>
+						<a href="javascript:;" class="commenBtnclose">关闭</a>
 					</form>
 				</div>
 			</div>
@@ -84,7 +80,7 @@
 			  <div class="media">
 				<div class="media-body">
 				  <p>{{: content}}</p>
-				  <h4 class="media-heading">作者：{{: author}} &nbsp;&nbsp;时间：{{updateDate:created}}</h4>
+				  <h5 class="media-heading">作者：{{: author}} &nbsp;&nbsp;时间：{{updateDate:created}}</h5>
 				  <p></p>
 				</div>
 			  </div>
