@@ -21,6 +21,10 @@ body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang 
 100%{opacity:1}
 }
 
+@media screen and (max-width: 1200px) {
+	.nav a{padding: 15px;}
+}
+
 .aside {
   position: fixed;
   top: 0;

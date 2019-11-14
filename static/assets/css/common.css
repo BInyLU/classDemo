@@ -36,7 +36,7 @@ img{border-radius: 4px;}
 
 
 /* 主内容 */
-.content{width:1200px;margin:0 auto}
+.content{width:1200px;margin:0 auto;position: relative;}
 
 /* 头部内容 */
 .header{width:100%;top:0;z-index:9999}
@@ -60,7 +60,7 @@ img{border-radius: 4px;}
 .logoBox{float: left;width: 40%;}
 .bannerImg{float: right;width: 50%;}
 .bannerImg img{width: 100%;}
-svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;}
+svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;left: 0;}
 .logoBox span{display: inline-block;font-size: 40px;padding-left: 100px;padding-top: 10px; }
 .logoBox p{margin: 20px 0 80px 0;font-size: 18px;line-height: 200%;}
 .logoBox a{transition: all .5s;background-color: #32325d;color: #fff;display: inline-block;font-size: 14px;padding: 10px 20px;border-radius: 5px;}
@@ -91,3 +91,13 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;}
 .page-header p span{font-size: 12px ;margin: 0 20px;color: #666;}
 .page-content{padding: 20px;}
 
+/* 自适应 */
+@media screen and (max-width: 1200px) {
+	.content{width:90%;}
+	.logoBox,.bannerImg{float: none;width: 100%;text-align: center;}
+	.logoBox a{display: none;}
+	.logoBox p {margin: 50px 0 80px 0;font-size: 14px;}
+	.logoBox span{font-size: 30px;padding-left: 50px;}
+	.mainLeft,.mainRight{float: none;width: 100%;}
+	.nav a{padding: 15px;}
+}
