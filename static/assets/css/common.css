@@ -22,6 +22,12 @@ img{border-radius: 4px;}
     100%{transform: rotate(360deg);}
 }
 
+/* 卡片信息向上出现 */
+@keyframes fadein{
+    0%{margin-top: 50px;opacity: 0;}
+    100%{margin-top: 10px;opacity: 1;}
+}
+
 /* 返回顶部 */
 #goToTop{text-align:right}
 
@@ -62,7 +68,7 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;}
 
 /* 主内容区域 */
 .main{width: 100%;}
-.card{margin-top: 10px; border-radius: 10px; background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);padding: 20px;}
+.card{margin-top: 10px; border-radius: 10px; background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);padding: 20px;animation: fadein 1s ease-in-out forwards;opacity: 0;}
 
 #category-list a{display: inline-block;padding: 10px 20px;background-image: linear-gradient(120deg,#8121ff,#5e5ef7); color: #fff;margin: 15px 0;border-radius: 10px;}
 
