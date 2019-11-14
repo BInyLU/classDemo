@@ -67,7 +67,7 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;lef
 .logoBox a:hover{box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);}
 
 /* 主内容区域 */
-.main{width: 100%;}
+.main{width: 100%;overflow: hidden;}
 .card{margin-top: 10px; border-radius: 10px; background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);padding: 20px;animation: fadein 1s ease-in-out forwards;opacity: 0;}
 
 #category-list a{display: inline-block;padding: 10px 20px;background-image: linear-gradient(120deg,#8121ff,#5e5ef7); color: #fff;margin: 15px 0;border-radius: 10px;}
@@ -115,7 +115,6 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;lef
 	.nav a{padding: 15px;}
 	.post-comments input,.post-comments textarea,.commenBtnpost,.commenBtnclose{width: 90%;}
 	.post-comments{width: 80%;}
-	.header{position: fixed;width: 100%;background-image: linear-gradient(120deg,#8121ff,#5e5ef7);bottom: 0;}
-	.nav ul li{float: none;}
+	.header{position: fixed;width: 100%;background-image: linear-gradient(120deg,#8121ff,#5e5ef7);bottom: 0;box-shadow: 0 0 30px rgba(0,0,0,.3);}
 	.nav ul li a{padding: 10px;}
 }
