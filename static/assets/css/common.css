@@ -92,7 +92,7 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;lef
 .page-content{padding: 20px;}
 
 /* 评论排版 */
-.post-comments,.media,.post-commets-list h2{background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);margin: 20px 0;padding: 20px;border-radius: 10px;}
+.post-comments,.media,.post-commets-list h4{background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);margin: 20px 0;padding: 20px;border-radius: 10px;}
 .form-group{padding: 20px 0;}
 input:focus,textarea:focus{border: none;}
 .post-comments input,.post-comments textarea{padding: 15px;border: 1px solid #ccc;margin: 10px 0;border-radius: 5px;width: 95%;}
