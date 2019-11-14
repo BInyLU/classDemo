@@ -59,3 +59,4 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;}
 .logoBox p{margin: 20px 0 80px 0;font-size: 20px;line-height: 200%;}
 .logoBox a{transition: all .5s;background-color: #32325d;color: #fff;display: inline-block;font-size: 14px;padding: 10px 20px;border-radius: 5px;}
 .logoBox a:hover{box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);}
+
