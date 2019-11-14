@@ -358,7 +358,7 @@ body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang 
 /* 头部内容 */
 .header{position:fixed;width:100%;top:0;z-index:9999}
 .nav ul li{float: left;}
-.nav ul li a{display: inline-block;color: #fff;padding: 25px;text-shadow: 4px 4px 10px rgba(0,0,0,.2);transition: all .4s;}
+.nav ul li a{display: inline-block;color: #fff;padding: 25px;text-shadow: 4px 4px 10px rgba(0,0,0,.2);transition: all .4s;font-size: 16px!important;}
 .nav ul li a:hover{color: #27cdfd;}
 
 /* banner背景 */
