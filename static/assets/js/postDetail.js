@@ -26,11 +26,11 @@ $(function ($) {
 		// });
 		// $('#hot_posts').html(html);
 
-		// $.views.converters({
-		// 	updateDate: function (val) {
-		// 		return val.substr(0, 10)
-		// 	}
-		// })
+		$.views.converters({
+			updateDate: function (val) {
+				return val.substr(0, 10)
+			}
+		})
 
 		// 渲染文章
 		$.get('/admin/api/post-detail.php', {
