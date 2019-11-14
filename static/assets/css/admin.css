@@ -23,6 +23,9 @@ body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang 
 
 @media screen and (max-width: 1200px) {
 	.nav a{padding: 15px;}
+	.login .login-wrap{width: 90%;}
+	.header{position: fixed;width: 100%;background-image: linear-gradient(120deg,#8121ff,#5e5ef7);bottom: 0;box-shadow: 0 0 30px rgba(0,0,0,.3);}
+	.nav ul li a{padding: 10px;}
 }
 
 .aside {
@@ -333,7 +336,7 @@ body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang 
 .login .login-wrap {
   position: relative;
 
-  max-width: 380px;
+  width: 380px;
   margin: 180px auto;
   padding: 100px 40px 40px;
 
