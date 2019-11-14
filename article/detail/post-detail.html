@@ -94,18 +94,15 @@
 		<div class="commenBtn">我要评论</div>
 		
 		<script type="text/javascript">
-			var commenBtn = document.querySelector('.commenBtn')
-			var post-comments = document.querySelector('.post-comments')
-			var commenBtnpost = document.querySelector('.commenBtnpost')
-			var commenBtnclose = document.querySelector('.commenBtnclose')
-			commenBtn.click(function(){
-				post-comments.fadeIn()
+
+			$('.commenBtn').click(function(){
+				$('.post-comments').show()
 			})
-			commenBtnpost.click(function(){
-				post-comments.hide()
+			$('.commenBtnclose').click(function(){
+				$('.post-comments').hide()
 			})
-			commenBtnclose.click(function(){
-				post-comments.hide()
+			$('.commenBtnpost').click(function(){
+				$('.post-comments').hide()
 			})
 		</script>
 		
