@@ -333,6 +333,7 @@ body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang 
 
   border-radius: 4px;
   background-color: #fff;
+  box-shadow: 10px 10px 30px rgba(0,0,0,.1);
 }
 
 .login .login-wrap .avatar {
