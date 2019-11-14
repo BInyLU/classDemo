@@ -108,7 +108,7 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;lef
 @media screen and (max-width: 1200px) {
 	.content{width:90%;}
 	.logoBox,.bannerImg{float: none;width: 100%;text-align: center;}
-	.logoBox a{display: none;}
+	.logoBox a{margin: 20px 0;}
 	.logoBox p {margin: 50px 0 80px 0;font-size: 14px;}
 	.logoBox span{font-size: 30px;padding-left: 50px;}
 	.mainLeft,.mainRight{float: none;width: 100%;}
