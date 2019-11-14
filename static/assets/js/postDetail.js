@@ -5,11 +5,6 @@ var id = decodeURI(loc.substr(n2 + 1, n1 - n2)); //从=号后面的内容
 
 
 $(function ($) {
-	$(document).ajaxStart(function () {
-		NProgress.start();
-	}).ajaxStop(function () {
-		NProgress.done();
-	});
 
 
 	$.get('/admin/api/category.php', function (data) {

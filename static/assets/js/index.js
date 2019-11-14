@@ -1,9 +1,5 @@
 $(function ($) {
-	$(document).ajaxStart(function () {
-		NProgress.start();
-	}).ajaxStop(function () {
-		NProgress.done();
-	});
+
 
 	$.get('/admin/api/category.php', function (data) {
 
