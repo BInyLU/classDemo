@@ -14,23 +14,23 @@ $(function ($) {
 
 	$.get('/admin/api/category.php', function (data) {
 
-		// 渲染分类
-		var html = $('#category_tmpl').render({
-			commens: data.category
-		});
-		$('#category-list').html(html);
+		// // 渲染分类
+		// var html = $('#category_tmpl').render({
+		// 	commens: data.category
+		// });
+		// $('#category-list').html(html);
 
-		// 渲染热门
-		var html = $('#hot_posts_tmpl').render({
-			commens: data.hot_post
-		});
-		$('#hot_posts').html(html);
+		// // 渲染热门
+		// var html = $('#hot_posts_tmpl').render({
+		// 	commens: data.hot_post
+		// });
+		// $('#hot_posts').html(html);
 
-		$.views.converters({
-			updateDate: function (val) {
-				return val.substr(0, 10)
-			}
-		})
+		// $.views.converters({
+		// 	updateDate: function (val) {
+		// 		return val.substr(0, 10)
+		// 	}
+		// })
 
 		// 渲染文章
 		$.get('/admin/api/post-detail.php', {
