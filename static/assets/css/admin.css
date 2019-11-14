@@ -10,7 +10,9 @@
   border-color: rgba(102, 175, 233, .8);
   box-shadow: 0 0 0 2px rgba(102, 175, 233, .4);
 }
-
+.fa{
+	color: #fff;
+}
 body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei","Lantinghei SC","Source Han Sans","Noto Sans CJK",sans-serif,Arial;opacity:0;animation:bodyFadein .5s ease-in-out forwards;letter-spacing: 2px;-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;}
 

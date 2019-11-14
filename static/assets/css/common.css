@@ -33,7 +33,7 @@ img{border-radius: 4px;}
 .content{width:1200px;margin:0 auto}
 
 /* 头部内容 */
-.header{position:fixed;width:100%;top:0;z-index:9999}
+.header{width:100%;top:0;z-index:9999}
 .nav ul li{float: left;}
 .nav ul li a{display: inline-block;color: #fff;padding: 25px;text-shadow: 4px 4px 10px rgba(0,0,0,.2);transition: all .4s;}
 .nav ul li a:hover{color: #27cdfd;}
@@ -50,7 +50,7 @@ img{border-radius: 4px;}
 
 
 /* banner内容 */
-.bannerContent{width: 100%;margin-top: 150px;color: #fff;}
+.bannerContent{width: 100%;margin-top: 100px;color: #fff;}
 .logoBox{float: left;width: 40%;}
 .bannerImg{float: right;width: 50%;}
 .bannerImg img{width: 100%;}
@@ -61,7 +61,7 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;}
 .logoBox a:hover{box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);}
 
 /* 主内容区域 */
-.main{width: 100%;margin-top: 100px;}
+.main{width: 100%;}
 .card{margin-top: 10px; border-radius: 10px; background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);padding: 20px;}
 
 #category-list a{display: inline-block;padding: 10px 20px;background-image: linear-gradient(120deg,#8121ff,#5e5ef7); color: #fff;margin: 15px 0;border-radius: 10px;}

@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['action']) && $_GET['actio
   <title>课程研讨平台系统</title>
   <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/static/assets/css/admin.css">
+  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="/static/assets/vendors/animate/animate.css">
 </head>
 <body>
