@@ -85,7 +85,7 @@
 		<script id="posts_detail_tmpl" type="text/x-jsrender">
 		{{for commens}}
 		  <div class="card">
-			<h1><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h1>
+			<h2><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
 			<p><span>时间:{{updateDate:created}}</span><span>阅读量:{{: views}}</span><span>评论数:{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p>
 			<p>{{: content}}</p>
 		  </div>

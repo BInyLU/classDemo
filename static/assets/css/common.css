@@ -77,3 +77,10 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;}
 #posts_detail h2{margin-bottom: 5px;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,.1);}
 #posts_detail p{margin-top: 10px;}
 #posts_detail span{font-size: 12px;margin: 5px 20px 5px 0 ;}
+
+/* 文章排版 */
+.postdetail{background: #fff;border-radius: 10px;box-shadow: 10px 10px 30px rgba(0,0,0,.2);}
+.page-header{text-align: center;padding: 20px;}
+.page-header h2{margin-bottom: 5px ;padding-bottom: 5px ;border-bottom: 1px solid rgba(0,0,0,.1);}
+.page-header p span{font-size: 12px ;margin: 0 20px;color: #666;}
+.page-content{padding: 20px;}
