@@ -129,6 +129,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['action']) && $_GET['actio
       <button class="btn btn-primary btn-block" id="button">登 录</button>
     </form>
   </div>
+  <div style="height: 100px;"></div>
   <script src="/static/assets/vendors/jquery/jquery.min.js"></script>
   <script src="/static/assets/vendors/jquery/md5.js"></script>
   <script>
