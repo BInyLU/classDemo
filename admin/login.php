@@ -127,6 +127,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['action']) && $_GET['actio
          <input type="hidden" id="password" name="password">
       </div>
       <button class="btn btn-primary btn-block" id="button">登 录</button>
+      <a href="https://ebuxsf.coding.io" class="btn btn-primary btn-block" >返回首页</a>
     </form>
   </div>
   <div style="height: 100px;"></div>

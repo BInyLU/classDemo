@@ -378,9 +378,6 @@ ul{list-style:none}
 }
 
 @media screen and (max-width: 1200px) {
-	.nav a{padding: 15px;}
 	.login .login-wrap{width: 90%;}
-	.header{position: fixed;width: 100%;background-image: linear-gradient(120deg,#8121ff,#5e5ef7);bottom: 0;box-shadow: 0 0 30px rgba(0,0,0,.3);}
-	.nav ul li a{padding: 10px;font-size: 12px;}
-	.nav ul li{text-align: center; float: none; width: 30%;display: inline-block;}
+	.header{display: none;}
 }
