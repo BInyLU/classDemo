@@ -49,9 +49,6 @@ function login(){
 
 
   //到这里了就可以跳转了
-  // if ($user['root']=='uesr') {
-     
-  // }
   if ($user['root']=='root') {
      header('Location: /admin/index.php');
   } 
