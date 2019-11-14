@@ -16,17 +16,7 @@
 body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei","Lantinghei SC","Source Han Sans","Noto Sans CJK",sans-serif,Arial;opacity:0;animation:bodyFadein .5s ease-in-out forwards;letter-spacing: 2px;-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;}
 
-/* 页面渐入进入 */
-@keyframes bodyFadein{0%{opacity:0}
-100%{opacity:1}
-}
 
-@media screen and (max-width: 1200px) {
-	.nav a{padding: 15px;}
-	.login .login-wrap{width: 90%;}
-	.header{position: fixed;width: 100%;background-image: linear-gradient(120deg,#8121ff,#5e5ef7);bottom: 0;box-shadow: 0 0 30px rgba(0,0,0,.3);}
-	.nav ul li a{padding: 10px;}
-}
 
 .aside {
   position: fixed;
@@ -366,7 +356,7 @@ body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang 
 .content{width:1200px;margin:0 auto}
 
 /* 头部内容 */
-.header{position:fixed;width:100%;top:0;z-index:9999}
+.header{position:fixed;width:100%;z-index:9999}
 .nav ul li{float: left;}
 .nav ul li a{display: inline-block;color: #fff;padding: 25px;text-shadow: 4px 4px 10px rgba(0,0,0,.2);transition: all .4s;font-size: 16px!important;}
 .nav ul li a:hover{color: #27cdfd;}
@@ -381,3 +371,15 @@ body{background-color: #f8fafc;font-family:-apple-system,"SF UI Text","PingFang 
 .m-bg .m-bg-mask3{bottom:540px;left:20%;width:70%;height:240px;background-image:linear-gradient(-225deg,#5f2bff,#6088fe 48%,#22ccf6)}
 .m-bg::after{content:'';position:absolute;width:90%;height:100%;top:10px;left:5%;background:inherit;filter:blur(15px);opacity:.65;z-index:-1}
 ul{list-style:none}
+
+/* 页面渐入进入 */
+@keyframes bodyFadein{0%{opacity:0}
+100%{opacity:1}
+}
+
+@media screen and (max-width: 1200px) {
+	.nav a{padding: 15px;}
+	.login .login-wrap{width: 90%;}
+	.header{position: fixed;width: 100%;background-image: linear-gradient(120deg,#8121ff,#5e5ef7);bottom: 0;box-shadow: 0 0 30px rgba(0,0,0,.3);}
+	.nav ul li a{padding: 10px!important;}
+}
