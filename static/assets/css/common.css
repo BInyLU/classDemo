@@ -90,7 +90,7 @@ svg{position: absolute; animation: rotater 2s ease-in-out infinite alternate;lef
 .page-header h2{margin-bottom: 5px ;padding-bottom: 5px ;border-bottom: 1px solid rgba(0,0,0,.1);}
 .page-header p span{font-size: 12px ;margin: 0 20px;color: #666;}
 .page-content{padding: 20px;height: 100px;transition: all .5s;overflow: hidden;}
-#postdetail:hover{height: auto;}
+#postdetail:hover .page-content{height: auto;}
 
 /* 评论排版 */
 .post-comments,.media,.post-commets-list h4{background: #fff;box-shadow: 10px 10px 30px rgba(0,0,0,.1);margin: 20px 0;padding: 20px;border-radius: 10px;}
