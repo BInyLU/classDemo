@@ -19,6 +19,7 @@ $comments_held=xiu_fetch_one("select count(1) as held from comments where status
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">

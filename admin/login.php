@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET' && isset($_GET['action']) && $_GET['actio
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/static/assets/css/admin.css">
   <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
