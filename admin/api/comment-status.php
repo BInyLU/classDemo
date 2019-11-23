@@ -14,7 +14,7 @@ if (empty($_GET['id']) || empty($_POST['status'])) {
 // 拼接 SQL 并执行
 $id=$_GET['id'];
 $status=$_POST['status'];
-$affected_rows = xiu_execute(sprintf("update comments set status = '%s' where id in (%s)",$status,$id));
+$affected_rows = SqlOperation(sprintf("update comments set status = '%s' where id in (%s)",$status,$id));
 
 // 输出结果
 echo json_encode(array(

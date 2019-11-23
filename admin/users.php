@@ -2,7 +2,7 @@
 require_once '../functions.php';
 
 
-$users=xiu_fetch_all('select * from users');
+$users=FineAll('select * from users');
 
 
  ?>
@@ -11,12 +11,12 @@ $users=xiu_fetch_all('select * from users');
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/static/assets/css/admin.css">
-  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../static/assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../static/assets/css/admin.css">
+  <script src="../static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
   <script>NProgress.start()</script>
@@ -32,7 +32,7 @@ $users=xiu_fetch_all('select * from users');
         <strong>错误！</strong>发生XXX错误
       </div> -->
       <div class="row">
-<!--         <div class="col-md-4">
+<!--        <div class="col-md-4">
           <form>
             <h2>添加新用户</h2>
             <div class="form-group">
@@ -42,7 +42,7 @@ $users=xiu_fetch_all('select * from users');
             <div class="form-group">
               <label for="slug">别名</label>
               <input id="slug" class="form-control" name="slug" type="text" placeholder="slug">
-              <p class="help-block">https://chenyu.io/author/<strong>slug</strong></p>
+              <p class="help-block">http://localhost:8080/classDemo/author/<strong>slug</strong></p>
             </div>
             <div class="form-group">
               <label for="nickname">昵称</label>
@@ -60,7 +60,7 @@ $users=xiu_fetch_all('select * from users');
         <div class="col-md-12">
           <div class="page-action">
             <!-- show when multiple checked -->
-            <a id="btn-delete" class="btn btn-danger btn-sm" href="/admin/user-delete.php" style="display: none">批量删除</a>
+            <a id="btn-delete" class="btn btn-danger btn-sm" href="user-delete.php" style="display: none">批量删除</a>
           </div>
           <table class="table table-striped table-bordered table-hover">
             <thead>
@@ -78,13 +78,13 @@ $users=xiu_fetch_all('select * from users');
               <?php foreach ($users as $item): ?>
                 <tr class="text-center" >
                 <td class="text-center"><input data-id="<?php echo $item['id']; ?>" type="checkbox"></td>
-                <td class="text-center"><img class="avatar" src="<?php echo $item['avatar']; ?>"></td>
+                <td class="text-center"><img class="avatar" src="../<?php echo isset($item['avatar']) ? $item['avatar'] : 'static/assets/img/default.png'; ?>"></td>
                 <td><?php echo $item['email']; ?></td>
                 <td><?php echo $item['slug']; ?></td>
                 <td><?php echo $item['nickname']; ?></td>
                 <td><?php echo $item['root']=='root'? '管理员' : '用户'; ?></td>
                 <td class="text-center">
-                  <a href="/admin/user-delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger btn-xs">删除</a>
+                  <a href="user-delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger btn-xs">删除</a>
                 </td>
               </tr>        
               <?php endforeach ?>
@@ -97,8 +97,8 @@ $users=xiu_fetch_all('select * from users');
   </div>
   <?php $current_page='users' ?>
    <?php include 'inc/sidebar.php'; ?>
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../static/assets/vendors/jquery/jquery.js"></script>
+  <script src="../static/assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script>
     $(function($){
        var tbodyChecks=$('tbody input');
@@ -118,15 +118,7 @@ $users=xiu_fetch_all('select * from users');
         var checked=$(this).prop('checked');
         tbodyChecks.prop('checked',checked).trigger('change');
        });
-
-
-
-
-
     })
-
-
-
   </script>
   <script>NProgress.done()</script>
 </body>

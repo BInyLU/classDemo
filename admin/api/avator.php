@@ -7,7 +7,10 @@ require_once '../../config.php';
 //
 //1.接受传递过来的邮箱
 if (empty($_GET['email'])) {
-	exit('<h1>缺少必要参数</h1>');
+	exit(json_encode(array(
+	  'success' => false,
+	  'message' => '缺少必要参数'
+	)));
 }
 $email=$_GET['email'];
 //2.查询对应的头像地址

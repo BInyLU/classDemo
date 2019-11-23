@@ -7,9 +7,7 @@ if (empty($_GET['id'])) {
 
 $id=$_GET['id'];
 
+$rows=SqlOperation('delete from users where id in (' . $id . ');');
 
-$rows=xiu_execute('delete from users where id in (' . $id . ');');
-
-
-header('Location: /admin/users.php');
+header('Location: users.php');
 

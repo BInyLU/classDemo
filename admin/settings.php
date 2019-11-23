@@ -14,37 +14,30 @@ function blog_setting(){
    $site_name=$_POST['site_name'];
    $site_description=$_POST['site_description'];
    $site_keywords=$_POST['site_keywords'];
-    $rows1=xiu_execute("update options set value='{$site_name}' where id=3;");
-    $rows2=xiu_execute("update options set value='{$site_description}' where id=4;");
-    $rows3=xiu_execute("update options set value='{$site_keywords}' where id=5;");
-    $rows4=xiu_execute("update options set value={$comment} where id=8;");
+    $rows1=SqlOperation("update options set value='{$site_name}' where id=3;");
+    $rows2=SqlOperation("update options set value='{$site_description}' where id=4;");
+    $rows3=SqlOperation("update options set value='{$site_keywords}' where id=5;");
+    $rows4=SqlOperation("update options set value={$comment} where id=8;");
     $rows= $rows1+ $rows2+ $rows3+ $rows4;
     $GLOBALS['success']= $rows <=($rows-1) ? false : true;
     $GLOBALS['message']= $rows <=($rows-1) ?'更新失败' : '更新成功';
-
 }
-
-
-
-
-
 if ($_SERVER['REQUEST_METHOD']==='POST') {
   blog_setting();
 }
-$options=xiu_fetch_all('select value from options;');
-
- ?>
+$options=FineAll('select value from options;');
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/static/assets/css/admin.css">
-  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../static/assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../static/assets/css/admin.css">
+  <script src="../static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
   <script>NProgress.start()</script>
@@ -116,8 +109,8 @@ $options=xiu_fetch_all('select value from options;');
 <?php $current_page='settings' ?>
     <?php include 'inc/sidebar.php'; ?>
 
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../static/assets/vendors/jquery/jquery.js"></script>
+  <script src="../static/assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script>NProgress.done()</script>
 </body>
 </html>

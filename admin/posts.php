@@ -8,7 +8,7 @@ $page=empty($_GET['page'])? 1 : (int)$_GET['page'];
 
 // $page= $page < 1 ? 1 : $page;
 if ($page<1) {
-    header('Location: /admin/posts.php?page=1'.$search);
+    header('Location: posts.php?page=1'.$search);
 }
 //接受筛选参数
 //分类筛选
@@ -24,16 +24,13 @@ if (!empty($_GET['status'])&& (int)$_GET['status'] !=-1) {
     $search.='&status='.$_GET['status'];
 }
 if ($page<1) {
-    header('Location: /admin/posts.php?page=1'.$search);
+    header('Location: posts.php?page=1'.$search);
 }
   //计算出越过多少条
   $offset=($page-1)*$size;
 
   //处理分页页码
-$total_count=(int)xiu_fetch_one("select count(1) as count from posts
-inner join categories on posts.category_id=categories.id
-inner join users on posts.user_id=users.id
-where {$where};")['count'];
+$total_count=(int)FineOne("select count(1) as count from posts inner join categories on posts.category_id=categories.id inner join users on posts.user_id=users.id where {$where};")['count'];
 $total_pages=(int)ceil($total_count/$size);
 if ($total_pages==0) {
     $total_pages=1;
@@ -41,34 +38,18 @@ if ($total_pages==0) {
 }
 
 if ($page>$total_pages) {
-    header("Location: /admin/posts.php?page={$total_pages}".$search);
+    header("Location: posts.php?page={$total_pages}".$search);
 }
-
-
-
-
 
 // $page= $page > $total_pages ? $total_pages : $page;
 
-$post=xiu_fetch_all("select 
-  posts.id,
-  posts.title,
-users.nickname as user_name,
-categories.name as category_name,
-posts.created,
-posts.status 
-from posts
-inner join categories on posts.category_id=categories.id
-inner join users on posts.user_id=users.id
-where {$where}
-order by posts.created DESC
-limit {$offset} ,{$size};");
+$post=FineAll("select posts.id, posts.title, users.nickname as user_name, categories.name as category_name, posts.created, posts.status  from posts inner join categories on posts.category_id=categories.id inner join users on posts.user_id=users.id where {$where} order by posts.created DESC limit {$offset} ,{$size};");
 if (sizeof($post)!=0) {
     $posts=$post;
 }
 
 //查询所有的分类
-$categories=xiu_fetch_all('select * from categories;');
+$categories=FineAll('select * from categories;');
 //计算最大最小页码
 $visiables=5;
 $begin=$page-($visiables-1)/2;
@@ -98,10 +79,10 @@ function convert_date($created)
 }
 
 // function get_category($category_id){
-//    return xiu_fetch_one("select name from categories where id={$category_id}")['name'];
+//    return FineOne("select name from categories where id={$category_id}")['name'];
 // }
 // function get_user($user_id){
-//    return xiu_fetch_one("select nickname from users where id={$user_id}")['nickname'];
+//    return FineOne("select nickname from users where id={$user_id}")['nickname'];
 // }
 
 
@@ -116,12 +97,12 @@ function convert_date($created)
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/static/assets/css/admin.css">
-  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../static/assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../static/assets/css/admin.css">
+  <script src="../static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
   <script>NProgress.start()</script>
@@ -131,7 +112,7 @@ function convert_date($created)
     <div class="container-fluid">
       <div class="page-title">
         <h1>所有文章</h1>
-        <a href="/admin/post-add.php" class="btn btn-primary btn-xs">写文章</a>
+        <a href="post-add.php" class="btn btn-primary btn-xs">写文章</a>
       </div>
       <!-- 有错误信息时展示 -->
       <!-- <div class="alert alert-danger">
@@ -139,7 +120,7 @@ function convert_date($created)
       </div> -->
       <div class="page-action">
         <!-- show when multiple checked -->
-        <a id="btn_delete" class="btn btn-danger btn-sm" href="/admin/post-delete.php" style="display: none">批量删除</a>
+        <a id="btn_delete" class="btn btn-danger btn-sm" href="post-delete.php" style="display: none">批量删除</a>
         <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF'] ?>">
           <select name="category" class="form-control input-sm">
             <option value="-1">所有分类</option>
@@ -187,8 +168,8 @@ function convert_date($created)
                 <td class="text-center"><?php echo convert_date($item['created']); ?></td>
                 <td class="text-center"><?php echo convert_status($item['status']); ?></td>
                 <td class="text-center">
-                  <a href="/admin/post-add.php?id=<?php echo $item['id']; ?>" class="btn btn-default btn-xs">编辑</a>
-                  <a href="/admin/post-delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger btn-xs">删除</a>
+                  <a href="post-add.php?id=<?php echo $item['id']; ?>" class="btn btn-default btn-xs">编辑</a>
+                  <a href="post-delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger btn-xs">删除</a>
                 </td>
             </tr>
          <?php endforeach ?>
@@ -206,8 +187,8 @@ function convert_date($created)
   </div>
 <?php $current_page='posts' ?>
    <?php include 'inc/sidebar.php'; ?>
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../static/assets/vendors/jquery/jquery.js"></script>
+  <script src="../static/assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script>
     $(function($){
        var $btnDelete=$('#btn_delete');
@@ -227,14 +208,7 @@ function convert_date($created)
       $('thead input').on("change",function(){
             var checked=$(this).prop('checked');
             $tbobyChecks.prop('checked',checked).trigger('change');
-
-
       })
-
-
-
-
-
     })
 
   </script>

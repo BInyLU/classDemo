@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+    <style>
+		*{
+			transition: all .5s;
+		}
+		
+		.bigBox{
+			position: relative;
+			width: 270px;
+			height: 500px;
+			overflow: hidden;
+			border: solid 1px #000;
+			box-shadow: 2px 2px 10px rgba(0,0,0,.2);
+			box-sizing: border-box;
+		}
+		.box{
+			position: absolute;
+			width: 250px;
+			margin: 20px;
+			bottom: 0px;
+			padding: 200px 0;
+		}
+		.box4{
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 20px;
+			width: 100px;
+			height: 40px;
+			background: #fff;
+			border: 1px solid #000;
+			box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+		}
+		.box5{
+			position: absolute;
+			top: 20px;
+			left: 50%;
+			opacity: 0;
+			transform: translateX(-50%);
+			color: #FF0000;
+			font-size: 24px;
+		}
+		.box6,.box7,.box8{
+			width: 60px;
+			height: 40px;
+			margin: 0 10px;
+			background: #fff;
+			border: 1px solid #000;
+			box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+		}
+		.box2,.box3{
+			position: absolute;
+			top: 10px;
+			transform: translateX(-50%);
+			margin: 0 0 ;
+		}
+		.box2{
+			left: 20%;
+		}
+		.box3{
+			right:10%;
+		}
+
+		.head{
+			position: absolute;
+			width: 100%;
+			height: 40px;
+			background: #FFFFFF;
+			box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		
+		
+        .odd{
+            background:#ccc;
+            margin:10px;
+            text-align:center;
+            color:#fff;
+			width:50px;
+			height:50px;
+			line-height:50px;
+			box-shadow: 2px 2px 10px rgba(0,0,0,.2);
+        }
+		
+		.bothBox1{
+			display: inline-block;
+			border: 1px solid #000;
+		}
+		.bothBox2{
+			opacity: 0;
+			display: inline;
+			margin:50px;
+		}
+		.bothBox3{
+			opacity: 0;
+			display: inline;
+		}
+		.bothBox4{
+			display: inline-block;
+			border: 1px solid #000;
+		}
+		.bothBox5{
+			opacity: 0;
+			display: inline;
+			margin:50px;
+		}
+		.bothBox6{
+			opacity: 0;
+			display: inline;
+		}
+		.bothBox7{
+			display: inline-block;
+			border: 1px solid #000;
+		}
+		.bothBox8{
+			display: inline;
+			opacity: 0;
+		}
+		.bothBox9{
+			opacity: 0;
+			display: inline;
+			margin:50px;
+		}
+
+		.demo1{
+			background: #000;
+		}
+		.demo2{
+			background: green;
+		}
+		.smlBox{
+			margin: 20px 0;
+		}
+		
+		.boxActive{
+			opacity: 0;
+		}
+		.boxActives{
+			background: red;
+			opacity: 0.5;
+		}
+		.boxAmin1{
+			animation: flotop 60s forwards;
+		}
+		.boxAmin2{
+			animation: flotop 40s forwards;
+		}
+		.boxAmin3{
+			animation: flotop 20s forwards;
+		}
+		.box5Amin{
+			animation: fadeinout .5s forwards;
+		}
+		@keyframes flotop{
+			from{bottom: 0px;}
+			to{bottom: -5000px;}
+		}
+		@keyframes fadeinout{
+			from{opacity: 1;}
+			to{opacity: 0;}
+		}
+		
+    </style>
+	
+    <div class="bigBox">
+		<div class="box"></div>
+		<div class="head">
+			<h4 class="box2">分数：0</h4>
+			<h4 class="box3">倒计时：</h4>
+		</div>
+		<h4 class="box5"></h4>
+		<button class="box4">开始游戏</button>
+	</div>
+	<div class="smlBox">
+		<button class="box6">简单</button>
+		<button class="box7">中等</button>
+		<button class="box8">困难</button>
+	</div>
+	
+	<div class="btn">
+		<h1>别踩黑块 游戏</h1>
+	</div>
+	
+    <script>
+		
+		// Math.ceil(Math.random()*9) //随机九位数
+
+        window.onload = function(){
+			inHtml()
+		}
+
+		var jiannum = 20 //倒计时
+		var resNum = 10 //加分值
+		
+		var spe3 = "boxAmin3"
+		var spe2 = "boxAmin2"
+		var spe1 = "boxAmin1"
+		
+		function spe(oclass){
+			var spe = oclass
+			return spe
+		}
+		
+		var speNs = 0
+		
+		var box6 = document.querySelector('.box6')
+		var box7 = document.querySelector('.box7')
+		var box8 = document.querySelector('.box8')
+		
+		box6.onclick = function(){
+			speNs = 1
+			alert('你选择了简单系数，点击开始游戏')
+		}
+		box7.onclick = function(){
+			speNs = 2
+			alert('你选择了中等系数，点击开始游戏')
+		}
+		box8.onclick = function(){
+			speNs = 3
+			alert('你选择了困难系数，点击开始游戏')
+		}
+		
+        function inHtml() {
+						
+			var box = document.querySelector('.box')
+			var box3 = document.querySelector('.box3')
+			var box4 = document.querySelector('.box4')
+			
+			var boxs = 1000 //盒子数量
+			var boxHtml = ''
+            for (var i = 0; i < boxs; i++) {
+                boxHtml = boxHtml + '<div class="odd bothBox' + Math.ceil(Math.random()*9) + '"></div>'
+            }
+            box.innerHTML += boxHtml
+			box3.innerHTML = '倒计时：' + jiannum
+			box4.addEventListener('click',Game,true)
+        }
+
+
+        function Game() {
+			
+			var box = document.querySelector('.box')
+			var box2 = document.querySelector('.box2')
+			var box3 = document.querySelector('.box3')
+			var box4 = document.querySelector('.box4')
+			var box5 = document.querySelector('.box5')
+			
+            var jishuIndex = document.querySelectorAll('.odd');
+            var jiafenNum = 0;
+			
+			if(speNs == 0){
+				var speNum = spe(spe1)
+			}else if(speNs == 1){
+				var speNum = spe(spe1)
+			}else if(speNs == 2){
+				var speNum = spe(spe2)
+			}else if(speNs == 3){
+				var speNum = spe(spe3)
+			}
+			
+			box4.removeEventListener('click',Game,false)
+			box4.style.bottom = '-40px'
+            box2.innerHTML = '分数：' + jiafenNum
+			box.classList.add(speNum);
+			
+            for (var i = 0; i < jishuIndex.length; i++) {
+                jishuIndex[i].index = i
+				jishuIndex[i].addEventListener('click',function(){
+					if (this.index % 2 == 1) {
+						jishuIndex[this.index].classList.add("boxActives");
+						box5.innerHTML = '-10'
+						box5.classList.add("box5Amin");
+					    setTimeout(function () {
+							box5.classList.remove("box5Amin");
+					        jiafenNum = jiafenNum - resNum;
+					        box2.innerHTML = '分数：' + jiafenNum
+					        if (jiafenNum < 0) {
+					            jiafenNum = 0;
+					            box2.innerHTML = '分数：' + jiafenNum
+					        }
+					    },200)
+					} else {
+						setTimeout(function () {
+							box5.classList.remove("box5Amin");
+						},200)
+						jishuIndex[this.index].classList.add("boxActive");
+						box5.innerHTML = '+10'
+						box5.classList.add("box5Amin");
+					    jiafenNum = jiafenNum + resNum;
+					    box2.innerHTML = '分数：' + jiafenNum
+					}
+				},false)
+				
+				if (jishuIndex[i].index % 2 == 1) {
+					jishuIndex[i].classList.add("demo1");
+				}else {
+					jishuIndex[i].classList.add("demo2");
+				}
+
+            }
+			
+
+            function timer() {
+                jiannum--;
+                box3.innerHTML = '倒计时：' + jiannum
+            }
+
+            var timerss = setInterval(function () {
+                timer()
+                if (jiannum == 0) {
+					alert('游戏结束，你的分数为：' + jiafenNum + '分')
+                    jiannum = resNum;
+                    jiafenNum = 0;
+                    box2.innerHTML = '分数：' + jiafenNum
+                    inHtml()
+                    startNum = 0
+                    clearInterval(timerss)
+					var box = document.querySelector('.box')
+					box.classList.remove(speNum);
+					box4.style.bottom = '20px'
+                }
+            }, 1000)
+
+        }
+
+    </script>
+</body>
+</html>

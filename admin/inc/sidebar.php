@@ -8,20 +8,15 @@
 require_once dirname(__FILE__).'/../../functions.php';
 $current_page= isset( $current_page) ? $current_page:' ' ;
 
-
 // session_start();
 // $current_user=$_SESSION['current_login_user'];
-$current_user=baixiu_get_current_user();
-
-
-
-
+$current_user=GetUser();
 
 ?>
 <!-- 这里的$current_page变量是为了解决侧边栏高亮问题 -->
 <div class="aside">
     <div class="profile">
-      <img class="avatar" src="<?php echo $current_user['avatar']; ?>">
+      <img class="avatar" src="..<?php echo isset($current_user['avatar']) ? $current_user['avatar'] : '../static/assets/img/default.png'; ?>">
       <h3 class="name"><?php echo $current_user['nickname']; ?></h3>
     </div>
     <ul class="nav">

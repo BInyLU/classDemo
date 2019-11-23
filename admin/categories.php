@@ -1,9 +1,9 @@
-<?php 
+<?php
 require_once '../functions.php';
 
 if (!empty($_GET['id'])) {
   //GET 表示此时是修改
-  $current_edit_category=xiu_fetch_one('select * from categories where id='.$_GET['id']);
+  $current_edit_category=FineOne('select * from categories where id='.$_GET['id']);
 }
 
 function add_category(){
@@ -17,7 +17,7 @@ function add_category(){
    $slug=$_POST['slug'];
 
 
-   $rows=xiu_execute("insert into categories values(null,'{$slug}','{$name}');");
+   $rows=SqlOperation("insert into categories values(null,'{$slug}','{$name}');");
 
    $GLOBALS['success']= $rows <=0 ? false : true;
     $GLOBALS['message']= $rows <=0 ?'添加失败' : '添加成功';
@@ -34,7 +34,7 @@ function edit_category(){
    $current_edit_category['name']=$name;
    $slug=empty($_POST['slug']) ? $current_edit_category['slug'] : $_POST['slug'];
    $current_edit_category['slug']=$slug;
-   $rows=xiu_execute("update categories set slug='{$slug}' , name='{$name}' where id={$id};");
+   $rows=SqlOperation("update categories set slug='{$slug}' , name='{$name}' where id={$id};");
    $GLOBALS['success']= $rows <=0 ? false : true;
     $GLOBALS['message']= $rows <=0 ?'更新失败' : '更新成功';
 }
@@ -45,16 +45,9 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
   }else{
     edit_category();
   }
-  
 }
-
-$categories=xiu_fetch_all('select * from categories;');
-
-
-
-
-
- ?>
+$categories=FineAll('select * from categories;');
+?>
 
 
 <!DOCTYPE html>
@@ -62,12 +55,12 @@ $categories=xiu_fetch_all('select * from categories;');
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/static/assets/css/admin.css">
-  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../static/assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../static/assets/css/admin.css">
+  <script src="../static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
   <script>NProgress.start()</script>
@@ -102,7 +95,7 @@ $categories=xiu_fetch_all('select * from categories;');
             <div class="form-group">
               <label for="slug">别名</label>
               <input id="slug" class="form-control" name="slug" type="text" placeholder="slug" value="<?php echo $current_edit_category['slug']; ?>">
-              <p class="help-block">https://chenyu.io/category/<strong>slug</strong></p>
+              <p class="help-block">http://localhost:8080/classDemo/<strong>slug</strong></p>
             </div>
             <div class="form-group">
               <button class="btn btn-primary" type="submit">保存</button>
@@ -124,14 +117,14 @@ $categories=xiu_fetch_all('select * from categories;');
               <button class="btn btn-primary" type="submit">添加</button>
             </div>
           </form>
-           
+
             <?php endif ?>
-          
+
         </div>
         <div class="col-md-8">
           <div class="page-action">
             <!-- show when multiple checked -->
-            <a  id="btn_delete" class="btn btn-danger btn-sm" href="/admin/category-delete.php" style="display: none">批量删除</a>
+            <a  id="btn_delete" class="btn btn-danger btn-sm" href="category-delete.php" style="display: none">批量删除</a>
           </div>
           <table class="table table-striped table-bordered table-hover">
             <thead>
@@ -143,19 +136,19 @@ $categories=xiu_fetch_all('select * from categories;');
               </tr>
             </thead>
             <tbody>
-             
+
              <?php foreach ($categories as $item): ?>
                 <tr>
                 <td class="text-center"><input type="checkbox" data-id="<?php echo $item['id']; ?>"></td>
                 <td><?php echo $item['name']; ?></td>
                 <td><?php echo $item['slug']; ?></td>
                 <td class="text-center">
-                  <a href="/admin/categories.php?id=<?php echo $item['id']; ?>" class="btn btn-info btn-xs">编辑</a>
-                  <a href="/admin/category-delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger btn-xs">删除</a>
+                  <a href="categories.php?id=<?php echo $item['id']; ?>" class="btn btn-info btn-xs">编辑</a>
+                  <a href="category-delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger btn-xs">删除</a>
                 </td>
               </tr>
              <?php endforeach ?>
-             
+
             </tbody>
           </table>
         </div>
@@ -165,8 +158,8 @@ $categories=xiu_fetch_all('select * from categories;');
 <?php $current_page='categories' ?>
   <?php include 'inc/sidebar.php'; ?>
 
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../static/assets/vendors/jquery/jquery.js"></script>
+  <script src="../static/assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script>
     $(function($){
        //在表格中的任意一个CheckBox选中状态变化时
@@ -178,7 +171,7 @@ $categories=xiu_fetch_all('select * from categories;');
 
         if ($(this).prop('checked')) {
              allCheckeds.includes(id) || allCheckeds.push(id);
-            
+
         }else {
           allCheckeds.splice(allCheckeds.indexOf(id),1);
         }
@@ -194,8 +187,8 @@ $categories=xiu_fetch_all('select * from categories;');
 
        })
      });
- 
-   
+
+
 
   </script>
   <script>NProgress.done()</script>

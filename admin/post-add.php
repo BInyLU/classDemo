@@ -1,45 +1,42 @@
-<?php 
+<?php
 require_once '../functions.php';
 //此时时编辑
 if (!empty($_GET['id'])) {
-   $posts=xiu_fetch_all("select posts.*,
-    categories.name as category_name
-    from posts
-    inner join categories on posts.category_id=categories.id
-    where posts.id={$_GET['id']};")['0'];
+    $posts=FineAll("select posts.*, categories.name as category_name from posts inner join categories on posts.category_id=categories.id  where posts.id={$_GET['id']};")['0'];
 }
 
-function post_add(){
+function post_add()
+{
     global $current_user_id;
     if (empty($_POST['slug']) || empty($_POST['title']) || empty($_POST['created']) || empty($_POST['content']) || empty($_POST['status']) || empty($_POST['category'])) {
-      $GLOBALS['success']= false ;
-    $GLOBALS['message']='请完整填写所有内容';
-      return;
+        $GLOBALS['success']= false ;
+        $GLOBALS['message']='请完整填写所有内容';
+        return;
     }
-    $slug=xiu_fetch_one("select count(1) as count from posts where slug ='{$_POST['slug']}'");
+    $slug=FineOne("select count(1) as count from posts where slug ='{$_POST['slug']}'");
 
-    if ( $slug['count']>0) {
-       $GLOBALS['success']= false ;
-      $GLOBALS['message']= '别名已经存在，请修改别名' ;
-      return;
+    if ($slug['count']>0) {
+        $GLOBALS['success']= false ;
+        $GLOBALS['message']= '别名已经存在，请修改别名' ;
+        return;
     }
 
-      $slug = $_POST['slug'];
+    $slug = $_POST['slug'];
 
-      $title = $_POST['title'];
+    $title = $_POST['title'];
 
-      $created = $_POST['created'];
+    $created = $_POST['created'];
 
-      $content = $_POST['content'];
+    $content = $_POST['content'];
 
-      $status = $_POST['status']; // 作者 ID 可以从当前登录用户信息中获取
+    $status = $_POST['status']; // 作者 ID 可以从当前登录用户信息中获取
 
-      $user_id = (int)$current_user_id['id'];
+    $user_id = (int)$current_user_id['id'];
 
-     $category_id = $_POST['category'];
+    $category_id = $_POST['category'];
 
-    // $affectd_rows=xiu_execute("insert into posts values (null,'{$_POST['slug']}','{$_POST['title']}','{$_POST['created']}','{$_POST['content']}',0,0,'{$_POST['status']}',{$current_user_id},{$_POST['category']});");
-    // 
+    // $affectd_rows=SqlOperation("insert into posts values (null,'{$_POST['slug']}','{$_POST['title']}','{$_POST['created']}','{$_POST['content']}',0,0,'{$_POST['status']}',{$current_user_id},{$_POST['category']});");
+    //
     $sql = sprintf(
         "insert into posts values (null, '%s','%s','%s','%s', 0, 0,'%s',1, %d)",
         $slug,
@@ -49,56 +46,56 @@ function post_add(){
         $status,
         $category_id
      );
-    if (xiu_execute($sql)<=0) {
-       $GLOBALS['success']= false ;
-      $GLOBALS['message']= '添加失败';
-    }else{
-       $GLOBALS['success']= true ;
-      $GLOBALS['message']= '添加成功';
+    if (SqlOperation($sql)<=0) {
+        $GLOBALS['success']= false ;
+        $GLOBALS['message']= '添加失败';
+    } else {
+        $GLOBALS['success']= true ;
+        $GLOBALS['message']= '添加成功';
     }
 }
-function post_edit(){
+function post_edit()
+{
     global $posts;
-     if (empty($_POST['slug']) || empty($_POST['title']) || empty($_POST['created']) || empty($_POST['content']) || empty($_POST['status']) || empty($_POST['category'])) {
-      $GLOBALS['success']= false ;
-    $GLOBALS['message']='请完整填写所有内容';
-      return;
+    if (empty($_POST['slug']) || empty($_POST['title']) || empty($_POST['created']) || empty($_POST['content']) || empty($_POST['status']) || empty($_POST['category'])) {
+        $GLOBALS['success']= false ;
+        $GLOBALS['message']='请完整填写所有内容';
+        return;
     }
     $id = $posts['id'];
-   $title=empty($_POST['title']) ? $posts['title'] : $_POST['title'];
-   $posts['title']=$title;
+    $title=empty($_POST['title']) ? $posts['title'] : $_POST['title'];
+    $posts['title']=$title;
 
-   $content=empty($_POST['content']) ? $posts['content'] : $_POST['content'];
-   $posts['content']=$content;
+    $content=empty($_POST['content']) ? $posts['content'] : $_POST['content'];
+    $posts['content']=$content;
 
     $slug=empty($_POST['slug']) ? $posts['slug'] : $_POST['slug'];
-   $posts['slug']=$slug;
+    $posts['slug']=$slug;
 
     $created=empty($_POST['created']) ? $posts['created'] : $_POST['created'];
-   $posts['created']=$created;
+    $posts['created']=$created;
 
-   $category_id= $_POST['category'];
-   $posts['category_id']=$category_id;
+    $category_id= $_POST['category'];
+    $posts['category_id']=$category_id;
 
-   $status=$_POST['status'];
-   $posts['status']=$status;
+    $status=$_POST['status'];
+    $posts['status']=$status;
 
-   $rows=xiu_execute("update posts set title='{$title}',slug='{$slug}',content='{$content}',created='{$created}',category_id='{$category_id}',status='{$status}' where id={$id};");
+    $rows=SqlOperation("update posts set title='{$title}',slug='{$slug}',content='{$content}',created='{$created}',category_id='{$category_id}',status='{$status}' where id={$id};");
 
-   $GLOBALS['success']= $rows <=0 ? false : true;
+    $GLOBALS['success']= $rows <=0 ? false : true;
     $GLOBALS['message']= $rows <=0 ?'更新失败' : '更新成功';
 }
 if ($_SERVER['REQUEST_METHOD']==='POST') {
-    if (empty($_GET['id'])){
-      post_add();
-    }else{
-       post_edit();
+    if (empty($_GET['id'])) {
+        post_add();
+    } else {
+        post_edit();
     }
-   
 }
-$categories=xiu_fetch_all('select * from categories');
-$current_user=baixiu_get_current_user();
-$current_user_id=xiu_fetch_one("select id from users where email='{$current_user['email']}'");
+$categories=FineAll('select * from categories');
+$current_user=GetUser();
+$current_user_id=FineOne("select id from users where email='{$current_user['email']}'");
 
 
 
@@ -109,13 +106,13 @@ $current_user_id=xiu_fetch_one("select id from users where email='{$current_user
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="/static/assets/vendors/simplemde/simplemde.min.css">
-  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/static/assets/css/admin.css">
-  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../static/assets/vendors/simplemde/simplemde.min.css">
+  <link rel="stylesheet" href="../static/assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../static/assets/css/admin.css">
+  <script src="../static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
   <script>NProgress.start()</script>
@@ -160,7 +157,7 @@ $current_user_id=xiu_fetch_one("select id from users where email='{$current_user
        <div class="form-group">
        <label for="slug">别名</label>
        <input id="slug" class="form-control" name="slug" type="text" placeholder="slug" value="<?php echo isset($posts['slug']) ? $posts['slug'] : ''; ?>">
-            <p class="help-block">https://chenyu.io/post/<strong>slug</strong></p>
+            <p class="help-block">http://localhost:8080/classDemo/<strong>slug</strong></p>
             </div>
             <div class="form-group">
             <label for="category">所属分类</label>
@@ -203,7 +200,7 @@ $current_user_id=xiu_fetch_one("select id from users where email='{$current_user
        <div class="form-group">
        <label for="slug">别名</label>
        <input id="slug" class="form-control" name="slug" type="text" placeholder="slug" value="<?php echo isset($_POST['slug']) ? $_POST['slug'] : '' ;?>">
-            <p class="help-block">https://ebuxsf.coding.io/<strong>slug</strong></p>
+            <p class="help-block">http://localhost:8080/classDemo/<strong>slug</strong></p>
             </div>
             <div class="form-group">
             <label for="category">所属分类</label>
@@ -235,59 +232,16 @@ $current_user_id=xiu_fetch_one("select id from users where email='{$current_user
 <?php $current_page='post-add' ?>
    <?php include 'inc/sidebar.php'; ?>
 
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
-  <script type="text/javascript" src="/static/assets/vendors/ueditor/ueditor.config.js"></script>
-  <script type="text/javascript" src="/static/assets/vendors/ueditor/ueditor.all.js"></script> 
-    <script src="/static/assets/vendors/simplemde/simplemde.min.js"></script>
-  <script src="/static/assets/vendors/moment/moment-with-locales.js"></script>
-  <script src="/static/assets/vendors/moment/moment.js"></script>
+  <script src="../static/assets/vendors/jquery/jquery.js"></script>
+  <script src="../static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../static/assets/vendors/ueditor/ueditor.config.js"></script>
+  <script src="../static/assets/vendors/ueditor/ueditor.all.js"></script> 
+  <script src="../static/assets/vendors/simplemde/simplemde.min.js"></script>
+  <script src="../static/assets/vendors/moment/moment-with-locales.js"></script>
+  <script src="../static/assets/vendors/moment/moment.js"></script>
   <script>
-      $('#created').val(moment().format('YYYY-MM-DDTHH:mm'));
-     //Markdown 编辑器
-      // new SimpleMDE({
-      //   element: $("#content")[0],
-      //   autoDownloadFontAwesome: false
-      // });
-
-
-    //ue
+    $('#created').val(moment().format('YYYY-MM-DDTHH:mm'));
     var ue = UE.getEditor('content');
-
-
-
-
-
-// var simplemde = new SimpleMDE({
-//         element: document.querySelector('textarea'),
-//         autoDownloadFontAwesome:false,//true从默认地址引入fontawesome依赖 false需自行引入(国内用bootcdn更快点)
-//         autofocus:true,
-//         autosave: {
-//             enabled: true,
-//             uniqueId: "SimpleMDE",
-//             delay: 1000,
-//         },
-//         blockStyles: {
-//             bold: "**",
-//             italic: "*",
-//             code: "```"
-//         },
-//         forceSync: true,
-//         hideIcons: false,
-//         indentWithTabs: true,
-//         lineWrapping: true,
-//         renderingConfig:{
-//             singleLineBreaks: false,
-//             codeSyntaxHighlighting: true // 需要highlight依赖
-//         },
-//         showIcons: true,
-//         spellChecker: true
-//     });
-//     // 默认开启预览模式
-//     simplemde.toggleSideBySide();
-
-
-
   </script>
   <script>NProgress.done()</script>
 </body>

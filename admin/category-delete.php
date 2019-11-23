@@ -7,10 +7,10 @@ if (empty($_GET['id'])) {
 }
 $id=$_GET['id'];
 
-$rows=xiu_execute('delete from categories where id in (' . $id . ');');
-$row_s=xiu_execute('delete from posts where category_id in (' . $id . ');');
+$rows=SqlOperation('delete from categories where id in (' . $id . ');');
+$row_s=SqlOperation('delete from posts where category_id in (' . $id . ');');
 
-header('Location: /admin/categories.php');
+header('Location: categories.php');
 // if ($rows>0) {
 // 	# code...
 // }

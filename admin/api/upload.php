@@ -2,7 +2,10 @@
 
 
 if (empty($_FILES['avatar'])) {
-	exit('必须上传文件');
+	exit(json_encode(array(
+	  'success' => false,
+	  'message' => '必须上传文件'
+	)));
 }
 
 $avatar=$_FILES['avatar'];

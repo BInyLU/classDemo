@@ -8,12 +8,12 @@ require_once '../config.php';
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/static/assets/css/admin.css">
-  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../static/assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../static/assets/css/admin.css">
+  <script src="../static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
   <script>NProgress.start()</script>
@@ -77,7 +77,7 @@ require_once '../config.php';
        <tr {{if status=='held'}} class="warning" {{else status=='rejected'}} class="danger" {{/if}} data-id="{{: id}}">
             <td class="text-center"><input type="checkbox" ></td>
             <td>{{: author}}</td>
-            <td>{{: content}}</td>
+            <td><div style="height: 50px;overflow: hidden;" class="openComm">{{: content}}</div></td>
             <td>{{: post_title}}</td>
             <td>{{: created}}</td>
             <td >{{: status === 'held' ? '待审' : status === 'rejected' ? '拒绝' : '准许' }}</td>
@@ -86,18 +86,23 @@ require_once '../config.php';
               <a href="javascript:;" class="btn btn-info btn-xs btn-edit" data-status="approved">批准</a>
               <a href="javascript:;" class="btn btn-warning btn-xs btn-edit" data-status="rejected">拒绝</a>
               {{/if}}
+              <!-- <a href="javascript:;" class="btn btn-default btn-xs openCommBtn">查看</a> -->
               <a href="javascript:;" class="btn btn-danger btn-xs btn-delete">删除</a>
             </td>
       </tr> 
     {{/for}}
   </script>
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
-  <script src="/static/assets/vendors/jsrender/jsrender.js"></script>
- <script src="/static/assets/vendors/twbs-pagination/jquery.twbsPagination.js"></script>
-
+  <script src="../static/assets/vendors/jquery/jquery.js"></script>
+  <script src="../static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../static/assets/vendors/jsrender/jsrender.js"></script>
+ <script src="../static/assets/vendors/twbs-pagination/jquery.twbsPagination.js"></script>
+	<style>
+		.openComm:hover{
+			height:auto!important
+		}
+	</style>
   <script>
-    $(function($){  
+    $(function($){
       $(document).ajaxStart(function() {
         NProgress.start();
       }).ajaxStop(function() {
@@ -106,7 +111,7 @@ require_once '../config.php';
     var currentPage=1;
     function loadPageDate(page) {
          //发送ajax请求 获取列表所需数据
-        $.getJSON('/admin/api/comments.php',{page:page},function(res){
+        $.getJSON('api/comments.php',{page:page},function(res){
           if (page>res.total_pages) {
             loadPageDate(res.total_pages);
             return false;
@@ -161,7 +166,7 @@ require_once '../config.php';
       var $tr=$(this).parent().parent();
        var id=$tr.data('id');
       //发送一个ajax请求 ,告诉服务端要删除哪一条的数据
-      $.get('/admin/api/comment-delete.php',{id:id},function(res){
+      $.get('api/comment-delete.php',{id:id},function(res){
         if (!res) return;
         // $tr.remove();
         //重新载入当前这一页的数据
@@ -173,7 +178,7 @@ require_once '../config.php';
    $('tbody').on('click', '.btn-edit',function() {
        var id =$(this).parent().parent().data('id');
        var status=$(this).data('status');
-       $.post('/admin/api/comment-status.php?id='+id, {status: status}, function(res) {
+       $.post('api/comment-status.php?id='+id, {status: status}, function(res) {
           res.success &&  loadPageDate(currentPage);
        });
    });
@@ -195,23 +200,27 @@ require_once '../config.php';
    });
    //点击不同按钮执行不同请求
    $btnBatch.on('click', '.btn-info', function() {
-     $.post('/admin/api/comment-status.php?id='+allChecks.join(','), {status: 'approved'}, function(res) {
+     $.post('api/comment-status.php?id='+allChecks.join(','), {status: 'approved'}, function(res) {
           res.success &&  loadPageDate(currentPage);
        });
    });
    $btnBatch.on('click', '.btn-warning', function() {
-      $.post('/admin/api/comment-status.php?id='+allChecks.join(','), {status: 'rejected'}, function(res) {
+      $.post('api/comment-status.php?id='+allChecks.join(','), {status: 'rejected'}, function(res) {
           res.success &&  loadPageDate(currentPage);
        });
    });
    $btnBatch.on('click', '.btn-danger', function() {
-     $.get('/admin/api/comment-delete.php',{id : allChecks.join(',')}, function(res) {
+     $.get('api/comment-delete.php',{id : allChecks.join(',')}, function(res) {
            if (!res) return;
         // $tr.remove();
         //重新载入当前这一页的数据
         loadPageDate(currentPage);
        });
    });
+   
+   // $('.openCommBtn').on('click',function(){
+	  // $('.openComm').css('height','auto')
+   // })
 });
   </script>
   <script>NProgress.done()</script>

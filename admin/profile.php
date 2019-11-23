@@ -11,7 +11,7 @@ function edit_user(){
    $slug=$_POST['slug'];
    $nickname=$_POST['nickname'];
    $bio=$_POST['bio'];
-   $rows=xiu_execute("update users set slug='{$slug}',nickname='{$nickname}',bio='{$bio}', avatar='{$avatar}' where email='{$email}';");
+   $rows=SqlOperation("update users set slug='{$slug}',nickname='{$nickname}',bio='{$bio}', avatar='{$avatar}' where email='{$email}';");
     $GLOBALS['success']= $rows <=0 ? false : true;
     $GLOBALS['message']= $rows <=0 ?'更新失败' : '更新成功';
 
@@ -20,9 +20,9 @@ function edit_user(){
 if ($_SERVER['REQUEST_METHOD']==='POST') {
   edit_user();
 }
-$current_user=baixiu_get_current_user();
+$current_user=GetUser();
 $email=$current_user['email'];
-$avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avatar'];
+$avatar=FineOne("select avatar from users where email='{$email}';")['avatar'];
 
 
 
@@ -33,12 +33,12 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/static/assets/css/admin.css">
-  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../static/assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../static/assets/css/admin.css">
+  <script src="../static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
   <script>NProgress.start()</script>
@@ -68,8 +68,8 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
           <div class="col-sm-6">
             <label class="form-image">
               <input id="avatar" type="file">
-              <img src="<?php echo isset($avatar) ? $avatar : '/static/assets/img/default.png'; ?>">
-              <input type="hidden" name="avatar" value="<?php echo isset($avatar) ? $avatar : '/static/assets/img/default.png'; ?>">
+              <img src="<?php echo isset($avatar) ? $avatar : '../static/assets/img/default.png'; ?>">
+              <input type="hidden" name="avatar" value="..<?php echo isset($avatar) ? $avatar : '../static/assets/img/default.png'; ?>">
               <i class="mask fa fa-upload"></i>
             </label>
           </div>
@@ -85,7 +85,7 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
           <label for="slug" class="col-sm-3 control-label">别名</label>
           <div class="col-sm-6">
             <input id="slug" class="form-control" name="slug" type="type" value="别名" placeholder="slug">
-            <p class="help-block">https://kbnvlf.coding.io/author/<strong>别名</strong></p>
+            <p class="help-block">http://localhost:8080/classDemo/author/<strong>别名</strong></p>
           </div>
         </div>
         <div class="form-group">
@@ -113,8 +113,8 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
 <?php $current_page='profile' ?>
   <?php include 'inc/sidebar.php'; ?>
 
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../static/assets/vendors/jquery/jquery.js"></script>
+  <script src="../static/assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script>
     $('#avatar').on('change',function(){
       //当文件选择状态变化会执行这个事件处理函数
@@ -131,7 +131,7 @@ $avatar=xiu_fetch_one("select avatar from users where email='{$email}';")['avata
 
 
     var xhr=new XMLHttpRequest();
-    xhr.open('POST','/admin/api/upload.php');
+    xhr.open('POST','api/upload.php');
     xhr.send(data);
 
     xhr.onload=function(){

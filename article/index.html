@@ -5,24 +5,20 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>课程研讨平台</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-		<link rel="stylesheet" href="/static/assets/css/common.css">
-		<script src="/static/assets/vendors/jquery/jquery.js"></script>
-		<script src="/static/assets/js/index.js"></script>
-		<script src="/static/assets/js/common.js"></script>
-		<script src="/static/assets/vendors/jsrender/jsrender.js"></script>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="../static/assets/css/common.css">
 	</head>
-	<body>
-
+	<body class="body">
+		
 		<!-- 头部菜单 -->
 		<div class="header">
 			<div class="content">
 				<div class="nav">
 					<ul>
-						<li><a href="https://ebuxsf.coding.io"><i class="fa fa-home"></i>&nbsp;&nbsp;首页</a></li>
-						<li><a href="https://ebuxsf.coding.io/article"><i class="fa fa-book"></i>&nbsp;&nbsp;话题研讨</a></li>
-						<li><a href="https://ebuxsf.coding.io/admin"><i class="fa fa-user"></i>&nbsp;&nbsp;个人中心</a></li>
+						<li><a href="../index.html"><i class="fa fa-home"></i><span>&nbsp;&nbsp;首页</span></a></li>
+						<li><a href="index.html"><i class="fa fa-book"></i><span>&nbsp;&nbsp;话题研讨</span></a></li>
+						<li><a href="../admin/"><i class="fa fa-user"></i><span>&nbsp;&nbsp;个人中心</span></a></li>
 						<div class="clear"></div>
 					</ul>
 				</div>
@@ -44,38 +40,46 @@
 		<div class="main">
 			<div class="content">
 				<div class="category card">
-					<h3>课程分类</h3>
 					<div class="list-group" id="category-list"></div>
+				</div>
+				<div class="card">
+					<form action="">
+						<input type="text" name="keywords" id="search" placeholder="搜索关键词...">
+						<button name="button" type="button" id="searchBtn">搜索</button>
+					</form>
+					<div id="searchRes"></div>
 				</div>
 				<div class="mainLeft">
 					<div class="post card">
-						<h3>热门讨论</h3>
 						<div id="hot_posts"></div>
 					</div>
 				</div>
-				<div class="mainRight" id="posts_detail">
-
-				</div>
+				<div class="mainRight card" id="posts_detail"></div>
 				<div class="clear"></div>
 			</div>
+		</div>
+		
+		<div id="goToTop">
+			<img src="../static/assets/img/top.jpg" width="50px">
 		</div>
 
 
 		<!-- 渲染分类 -->
 		<script id="category_tmpl" type="text/x-jsrender">
+			<h3>课程分类</h3>
 			{{for commens}}
-				<a href="/article/category/category.html?id={{: id}}">
-					<span>({{: count}})</span>
-				{{: name}}
+				<a href="category/category.html?id={{: id}}">
+					{{: name}}<span>({{: count}})</span>
 				</a>
 			{{/for}}
 		</script>
 
 		<!-- 渲染热门 -->
 		<script id="hot_posts_tmpl" type="text/x-jsrender">
+			<h3>热门讨论</h3>
 			{{for commens}}
 				<div class="smlcard">
-					<a href="/article/detail/post-detail.html?id={{: id}}">
+					<a href="detail/post-detail.html?id={{: id}}">
 						<h4>{{: title}}</h4>
 						<p>阅读量：<span>{{: views}}</span></p>
 					</a>
@@ -85,14 +89,32 @@
 
 		<!-- 渲染文章 -->
 		<script id="posts_detail_tmpl" type="text/x-jsrender">
+			<h3>最新讨论</h3>
 			{{for commens}}
 				<div class="card">
-					<h2><a href="/article/detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
+					<h2><a href="detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
 					<p><span>时间:{{updateDate:created}}</span><span>阅读量:{{: views}}</span><span>评论数:{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p>
-					<p>{{: content}}</p>
+					<!-- <p>{{: content}}</p> -->
+				</div>
+			{{/for}}
+		</script>
+		
+		<!-- 渲染搜索结果 -->
+		<script id="searchRestep" type="text/x-jsrender">
+			<h3>搜索结果</h3>
+			{{for search}}
+				<div class="card">
+					<h2><a href="detail/post-detail.html?id={{: id}}">{{: title}}</a></h2>
+					<p><span>阅读量:{{: views}}</span><span>评论数:{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p>
+					<!-- <p>{{: content}}</p> -->
 				</div>
 			{{/for}}
 		</script>
 		<div style="height: 100px;"></div>
+		<script src="../static/assets/vendors/jquery/jquery.js"></script>
+		<script src="../static/assets/js/common.js"></script>
+		<script src="../static/assets/js/index.js"></script>
+		<script src="../static/assets/js/search.js"></script>
+		<script src="../static/assets/vendors/jsrender/jsrender.js"></script>
 	</body>
 </html>

@@ -6,23 +6,24 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>课程研讨平台</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="/static/assets/css/common.css">
-		<link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-		<script src="/static/assets/vendors/jquery/jquery.js"></script>
-		<script src="/static/assets/vendors/jsrender/jsrender.js"></script>
-		<script src="/static/assets/js/postDetail.js"></script>
+		<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../../static/assets/css/common.css">
+		<link rel="stylesheet" href="../../static/assets/vendors/font-awesome/css/font-awesome.css">
+
 	</head>
 
-	<body>
+	<body class="body">
+		
+
+		
 		<!-- 头部菜单 -->
 		<div class="header">
 			<div class="content">
 				<div class="nav">
 					<ul>
-						<li><a href="https://ebuxsf.coding.io"><i class="fa fa-home"></i>&nbsp;&nbsp;首页</a></li>
-						<li><a href="https://ebuxsf.coding.io/article"><i class="fa fa-book"></i>&nbsp;&nbsp;话题研讨</a></li>
-						<li><a href="https://ebuxsf.coding.io/admin"><i class="fa fa-user"></i>&nbsp;&nbsp;个人中心</a></li>
+						<li><a href="../../index.html"><i class="fa fa-home"></i><span>&nbsp;&nbsp;首页</span></a></li>
+						<li><a href="../index.html"><i class="fa fa-book"></i><span>&nbsp;&nbsp;话题研讨</span></a></li>
+						<li><a href="../../admin/"><i class="fa fa-user"></i><span>&nbsp;&nbsp;个人中心</span></a></li>
 						<div class="clear"></div>
 					</ul>
 				</div>
@@ -45,7 +46,6 @@
 			<div class="content">
 				<div class="post_detail" id="postdetail"></div>
 				<div class="post-commets-list">
-					<h4>评论列表</h4>
 					<div id="post_C"></div>
 				</div>
 				<div class="post-comments">
@@ -65,46 +65,53 @@
 			</div>
 		</div>
 		
-
+		<!-- 文章内容 -->
 		<script id="posts_detail" type="text/x-jsrender">
 			{{for commens}}
 			  <div class="page-header">
 				<h2>{{: title}}</h2>
-				<p><span>时间:{{updateDate:created}}</span><span>阅读量:{{: views}}</span><span>评论数:{{if count==null}} 0 {{else  count!=null}} {{: count}}{{/if}}</span></p>
+				<p><span>时间:{{updateDate:created}}</span><span>阅读量:{{: views}}</span></p>
 			  </div>
 			  <div class="page-content">{{: content}}</div>
 			{{/for}}
 		</script>
+		
+		<!-- 评论 -->
 		<script id="post_comments" type="text/x-jsrender">
+			<h4>评论列表（最新时间）</h4>
 			{{for commens}}
-			  <div class="media">
-				<div class="media-body">
+			  <div class="comments">
+				<h5 class="comments-heading">作者：{{: author}} &nbsp;&nbsp;时间：{{updateDate:created}}</h5>
+				<a href="javascript:;" class="comments-btn">关闭内容</a>
+				<div class="comments-body">
 				  <p>{{: content}}</p>
-				  <h5 class="media-heading">作者：{{: author}} &nbsp;&nbsp;时间：{{updateDate:created}}</h5>
 				</div>
 			  </div>
 			{{/for}}
+			</div>
 		</script>
-		
+
+		<!-- 评论框 -->
 		<div class="commenBtn">我要评论</div>
 		<div class="commenMask"></div>
+
+		
+		<div id="goToTop">
+			<img src="../../static/assets/img/top.jpg" width="50px">
+		</div>
+		
+
+		<script src="../../static/assets/vendors/jquery/jquery.js"></script>
+		<script src="../../static/assets/js/common.js"></script>
+		<script src="../../static/assets/vendors/jsrender/jsrender.js"></script>
+		<script src="../../static/assets/js/postDetail.js"></script>
+		<script src="../../static/assets/vendors/ueditor/ueditor.config.js"></script>
+		<script src="../../static/assets/vendors/ueditor/ueditor.all.js"></script> 
+		
 		
 		<script type="text/javascript">
-
-			$('.commenBtn').click(function(){
-				$('.post-comments').fadeIn()
-				$('.commenMask').fadeIn()
-			})
-			$('.commenBtnclose').click(function(){
-				$('.post-comments').hide()
-				$('.commenMask').hide()
-			})
-			$('.commenBtnpost').click(function(){
-				$('.post-comments').hide()
-				$('.commenMask').hide()
-			})
+			var ue = UE.getEditor('content')
 		</script>
-		
 		<div style="height: 100px;"></div>
 	</body>
 

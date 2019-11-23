@@ -15,7 +15,7 @@ function edit_password(){
    //   $GLOBALS['message']='密码填写错误，请重新填写';
    //   $GLOBALS['success']=false;
    // }
-   $password=xiu_fetch_one("select password from users where id={$id};")['password'];
+   $password=FineOne("select password from users where id={$id};")['password'];
    var_dump($password);
    if (md5($old) !== $password) {
       $GLOBALS['message']='密码填写错误，请重新填写';
@@ -28,13 +28,13 @@ function edit_password(){
       return;
    }
    $news=md5($new);
-   $rows=xiu_execute("update users set password='{$news}' where id={$id};");
+   $rows=SqlOperation("update users set password='{$news}' where id={$id};");
     $GLOBALS['success']= $rows <=0 ? false : true;
     $GLOBALS['message']= $rows <=0 ?'更新失败' : '更新成功';
 }
-$current_user=baixiu_get_current_user();
+$current_user=GetUser();
 $email=$current_user['email'];
-$current_user_id=xiu_fetch_one("select id from users where email='{$email}';");
+$current_user_id=FineOne("select id from users where email='{$email}';");
 
 
 if ($_SERVER['REQUEST_METHOD']==='POST') {
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
 }
 
 
-$password=xiu_fetch_one("select password from users where id={$current_user_id['id']};")['password'];
+$password=FineOne("select password from users where id={$current_user_id['id']};")['password'];
 var_dump($password);
 
 
@@ -54,12 +54,12 @@ var_dump($password);
 <head>
   <meta charset="utf-8">
   <title>课程研讨平台系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/static/assets/vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/static/assets/css/admin.css">
-  <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../static/assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../static/assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../static/assets/css/admin.css">
+  <script src="../static/assets/vendors/nprogress/nprogress.js"></script>
 </head>
 <body>
   <script>NProgress.start()</script>
@@ -111,8 +111,8 @@ var_dump($password);
   </div>
 <?php $current_page='password-reset' ?>
    <?php include 'inc/sidebar.php'; ?>
-  <script src="/static/assets/vendors/jquery/jquery.js"></script>
-  <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../static/assets/vendors/jquery/jquery.js"></script>
+  <script src="../static/assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script>NProgress.done()</script>
 </body>
 </html>
